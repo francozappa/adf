@@ -22,7 +22,7 @@ The repository has the following structure:
 
 The ADF is presented in the [AttackDefense Framework (ADF): Enhancing IoT Devices
 and Lifecycles Threat Modeling](https://dl.acm.org/doi/abs/10.1145/3698396)
-paper, published in the ACM Transactions on Embedded Computing Systems (TECS) in 2024.
+paper, published in the ACM Transactions on Embedded Computing Systems (TECS) in 2025.
 
 ```tex
 @article{sacchetti2025attackdefense,
