@@ -25,16 +25,15 @@ and Lifecycles Threat Modeling](https://dl.acm.org/doi/abs/10.1145/3698396)
 paper, published in the ACM Transactions on Embedded Computing Systems (TECS) in 2024.
 
 ```tex
-@article{sacchetti2024attackdefense,
-  author    = {Sacchetti, Tommaso and Bognar, Marton and De Meulemeester, Jesse and Gierlichs, Benedikt and Piessens, Frank and Bezsmertnyi, Volodymyr and Molteni, Maria Chiara and Cristalli, Stefano and Gringiani, Arianna and Thomas, Olivier and Antonioli, Daniele},
-  title     = {{AttackDefense Framework (ADF)}: Enhancing IoT Devices and Lifecycles Threat Modeling},
-  year      = 2024,
-  publisher = {Association for Computing Machinery},
-  issn      = {1539-9087},
-  url       = {https://doi.org/10.1145/3698396},
-  doi       = {10.1145/3698396},
-  journal   = {ACM Transactions on Embedded Computing Systems},
-  month     = oct
+@article{sacchetti2025attackdefense,
+  title={{AttackDefense Framework (ADF): Enhancing IoT Devices and Lifecycles Threat Modeling}},
+  author={Sacchetti, Tommaso and Bognar, Marton and De Meulemeester, Jesse and Gierlichs, Benedikt and Piessens, Frank and Bezsmertnyi, Volodymyr and Molteni, Maria Chiara and Cristalli, Stefano and Gringiani, Arianna and Thomas, Olivier and others},
+  journal={ACM Transactions on Embedded Computing Systems},
+  volume={24},
+  number={5},
+  pages={1--34},
+  year={2025},
+  publisher={ACM New York, NY}
 }
 ```
 
