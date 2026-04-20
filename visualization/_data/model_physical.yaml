@@ -1,0 +1,43 @@
+---
+# NOTE:
+# List of surfaces and PIDs as defined by MITRE v2.1
+# reduced to cover HW aspects of modeled device
+#
+#
+# This file is derived from ../../mitre/surfaces.yaml
+#
+
+
+
+Device includes a microprocessor:
+    pid: 11
+
+Device includes Memory/Storage (external to CPU):
+    pid: 12
+
+Device includes buses for external memory/storage:
+    pid: 121
+
+Device includes discrete chips/devices that have access to the same physical memory:
+    pid: 122
+
+Device includes ROM, VRAM, or removable Storage:
+    pid: 123
+
+Device includes Random Access Memory (RAM) chips:
+    pid: 124
+
+Device includes DDR DRAM:
+    pid: 1241
+
+Device includes peripheral chips and integrated data buses:
+    pid: 13
+
+Device includes external peripheral interconnects (e.g., USB, Serial):
+    pid: 14
+
+Device includes a hardware access port (e.g., UART, JTAG):
+    pid: 15
+
+Device includes a debugging capabilities:
+    pid: 22

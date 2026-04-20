@@ -1,196 +1,193 @@
-########################################
+---
 # General Spectre AD
-########################################
 
-spectre :
+spectre:
   # Primary fields
-  a : The CPU can execute instructions transiently (being reverted before their results are committed to the architectural state), sometimes operating on secret operands they were not supposed to access. Traces of these executions can leak the secret values.
-  d :
-    "preventing speculation altogether" : [ "Disabling speculation in the hardware" ]
-  surf : [ "Optimizations leading to speculative execution in the hardware" ]
-  vect : [ "Many attack vectors apply" ]
-  model : [ "Many attacker models apply" ]
-  tag : [ "transient attack" ]
+  a: The CPU can execute instructions transiently (being reverted before their results are committed to the architectural state), sometimes operating on secret operands they were not supposed to access. Traces of these executions can leak the secret values.
+  d:
+    "preventing speculation altogether": ["Disabling speculation in the hardware"]
+  surf: ["Optimizations leading to speculative execution in the hardware"]
+  vect: ["Many attack vectors apply"]
+  model: ["Many attacker models apply"]
+  tag: ["transient attack"]
   # Optional fields
-  year : 2018
+  year: 2018
 
-########################################
 # Specific Spectre ADs
-########################################
 
-spectre-pht :
+spectre_pht:
   # Primary fields
-  a : Transient execution that results from mispredicted conditional branches can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel
-  d :
-    "preventing speculation altogether" : [ "Inserting fences at every branch", "Inserting fences at sensitive branches", "Disabling speculation in the hardware" ]
-    "preventing speculation on secrets" : [ "Implementing ProSpeCT or similar mechanisms in hardware", ... ]
-    "removing the covert channel": [ "Cache partitioning", "Disabling hyperthreading", ... ]
-  surf : [ "Shared resource enabling a covert channel between the victim and the attacker", "Shared pattern history table (PHT) between the victim and the attacker (no strict requirement)" ]
-  vect : [ "Controlling a shared resource leading to the covert channel", "Poisoning the PHT", "Executing the victim with chosen inputs" ]
-  model : [ "code execution", "remote" ]
-  tag : [ "transient attack" ]
+  a: Transient execution that results from mispredicted conditional branches can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel
+  d:
+    "preventing speculation altogether": ["Inserting fences at every branch", "Inserting fences at sensitive branches", "Disabling speculation in the hardware"]
+    "preventing speculation on secrets": ["Implementing ProSpeCT or similar mechanisms in hardware", ...]
+    "removing the covert channel": ["Cache partitioning", "Disabling hyperthreading", ...]
+  surf: ["Shared resource enabling a covert channel between the victim and the attacker", "Shared pattern history table (PHT) between the victim and the attacker (no strict requirement)"]
+  vect: ["Controlling a shared resource leading to the covert channel", "Poisoning the PHT", "Executing the victim with chosen inputs"]
+  model: ["code execution", "remote"]
+  tag: ["transient attack"]
   # Optional fields
-  year : 2018
-  cve : [ "CVE-2017-5753", "CVE-2017-5715" ]
+  year: 2018
+  cve: ["CVE-2017-5753", "CVE-2017-5715"]
 
 
-spectre-btb :
+spectre_btb:
   # Primary fields
-  a : Transient execution that results from mispredicted indirect branches can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel
-  d :
-    "preventing speculation altogether" : [ "Inserting fences at every indirect jump", "Disabling speculation in the hardware" ]
-    "preventing speculation on secrets" : [ "Implementing ProSpeCT or similar mechanisms in hardware", ... ]
-    "removing the covert channel": [ "Cache partitioning", "Disabling hyperthreading", ... ]
-  surf : [ "Shared resource enabling a covert channel between the victim and the attacker", "Shared branch target buffer (BTB) between the victim and the attacker" ]
-  vect : [ "Controlling a shared resource leading to the covert channel", "Poisoning the BTB" ]
-  model : [ "code execution", "remote" ]
-  tag : [ "transient attack" ]
+  a: Transient execution that results from mispredicted indirect branches can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel
+  d:
+    "preventing speculation altogether": ["Inserting fences at every indirect jump", "Disabling speculation in the hardware"]
+    "preventing speculation on secrets": ["Implementing ProSpeCT or similar mechanisms in hardware", ...]
+    "removing the covert channel": ["Cache partitioning", "Disabling hyperthreading", ...]
+  surf: ["Shared resource enabling a covert channel between the victim and the attacker", "Shared branch target buffer (BTB) between the victim and the attacker"]
+  vect: ["Controlling a shared resource leading to the covert channel", "Poisoning the BTB"]
+  model: ["code execution", "remote"]
+  tag: ["transient attack"]
   # Optional fields
-  year : 2018
-  cve : [ "CVE-2017-5753", "CVE-2017-5715" ]
+  year: 2018
+  cve: ["CVE-2017-5753", "CVE-2017-5715"]
 
 
-spectre-rsb :
+spectre_rsb:
   # Primary fields
-  a : Transient execution that results from mispredicted return instructions can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel
-  d :
-    "preventing speculation altogether" : [ "Inserting fences at every return instruction", "Disabling speculation in the hardware" ]
-    "preventing speculation on secrets" : [ "Implementing ProSpeCT or similar mechanisms in hardware", ... ]
-    "removing the covert channel": [ "Cache partitioning", "Disabling hyperthreading", ... ]
-  surf : [ "Shared resource enabling a covert channel between the victim and the attacker", "Shared return stack buffer (RSB) between the victim and the attacker" ]
-  vect : [ "Controlling a shared resource leading to the covert channel", "Poisoning the RSB" ]
-  model : [ "code execution", "remote" ]
-  tag : [ "transient attack" ]
+  a: Transient execution that results from mispredicted return instructions can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel
+  d:
+    "preventing speculation altogether": ["Inserting fences at every return instruction", "Disabling speculation in the hardware"]
+    "preventing speculation on secrets": ["Implementing ProSpeCT or similar mechanisms in hardware", ...]
+    "removing the covert channel": ["Cache partitioning", "Disabling hyperthreading", ...]
+  surf: ["Shared resource enabling a covert channel between the victim and the attacker", "Shared return stack buffer (RSB) between the victim and the attacker"]
+  vect: ["Controlling a shared resource leading to the covert channel", "Poisoning the RSB"]
+  model: ["code execution", "remote"]
+  tag: ["transient attack"]
   # Optional fields
-  year : 2018
-  cve : [ "CVE-2017-5753", "CVE-2017-5715" ]
+  year: 2018
+  cve: ["CVE-2017-5753", "CVE-2017-5715"]
 
 
-spectre-stl :
+spectre_stl:
   # Primary fields
-  a : Transient execution that results from mispredicted store-to-load dependencies can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel
-  d :
-    "preventing speculation altogether" : [ "Inserting fences at every load", "Inserting fences at sensitive loads", "Disabling store-to-load speculation in the hardware" ]
-    "preventing speculation on secrets" : [ "Implementing ProSpeCT or similar mechanisms in hardware", ... ]
-    "removing the covert channel": [ "Cache partitioning", "Disabling hyperthreading", ... ]
-  surf : [ "Shared resource enabling a covert channel between the victim and the attacker" ]
-  vect : [ "Controlling a shared resource leading to the covert channel" ]
-  model : [ "code execution", "remote" ]
-  tag : [ "transient attack" ]
+  a: Transient execution that results from mispredicted store-to-load dependencies can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel
+  d:
+    "preventing speculation altogether": ["Inserting fences at every load", "Inserting fences at sensitive loads", "Disabling store-to-load speculation in the hardware"]
+    "preventing speculation on secrets": ["Implementing ProSpeCT or similar mechanisms in hardware", ...]
+    "removing the covert channel": ["Cache partitioning", "Disabling hyperthreading", ...]
+  surf: ["Shared resource enabling a covert channel between the victim and the attacker"]
+  vect: ["Controlling a shared resource leading to the covert channel"]
+  model: ["code execution", "remote"]
+  tag: ["transient attack"]
   # Optional fields
-  year : 2018
-  cve : [ "CVE-2017-5753", "CVE-2017-5715" ]
+  year: 2018
+  cve: ["CVE-2017-5753", "CVE-2017-5715"]
 
 ########################################
 # Microarchitectural attacks
 ########################################
 
-evict-reload :
+evict_reload:
   # Primary fields
-  a : If the attacker and the victim have shared memory, the attacker can observe the victim's behavior regarding this shared memory by observing the cache state. If the attacker evicts a shared value of interest from the cache, then loads the value again after the victim's execution, based on the time taken it can determine whether the victim accessed the same value.
-  d :
-    "constant-time code" : [ "make memory accesses independent of secrets" ]
-    "avoiding shared memory" : [ "duplicate shared memory such as libraries" ]
-    "removing the contention" : [ "cache partitioning" ]
-    "making the leakage probabilistic": [ "randomize the cache replacement policy" ]
-  surf : [ "shared memory between victim and attacker", "shared cache" ]
-  vect : [ "modifying and observing the cache state" ]
-  model : [ "code execution", "remote" ]
-  tag : [ "contention", "cache attack" ]
+  a: If the attacker and the victim have shared memory, the attacker can observe the victim's behavior regarding this shared memory by observing the cache state. If the attacker evicts a shared value of interest from the cache, then loads the value again after the victim's execution, based on the time taken it can determine whether the victim accessed the same value.
+  d:
+    "constant-time code": ["make memory accesses independent of secrets"]
+    "avoiding shared memory": ["duplicate shared memory such as libraries"]
+    "removing the contention": ["cache partitioning"]
+    "making the leakage probabilistic": ["randomize the cache replacement policy"]
+  surf: ["shared memory between victim and attacker", "shared cache"]
+  vect: ["modifying and observing the cache state"]
+  model: ["code execution", "remote"]
+  tag: ["contention", "cache attack"]
 
 
-flush-reload :
+flush_reload:
   # Primary fields
-  a : If the attacker and the victim have shared memory, the attacker can observe the victim's behavior regarding this shared memory by observing the cache state. If the attacker flushes a shared value of interest from the cache, then loads the value again after the victim's execution, based on the time taken it can determine whether the victim accessed the same value.
-  d :
-    "constant-time code" : [ "make memory accesses independent of secrets" ]
-    "avoiding shared memory" : [ "duplicate shared memory such as libraries" ]
-    "removing flush capability" : [ "making the flush instruction priviliged", "removing the flush instruction" ]
-    "removing the contention" : [ "cache partitioning" ]
-    "making the leakage probabilistic": [ "randomize the cache replacement policy" ]
-  surf : [ "shared memory between victim and attacker", "shared cache", "access to a flush instruction" ]
-  vect : [ "modifying and observing the cache state" ]
-  model : [ "code execution", "remote" ]
-  tag : [ "contention", "cache attack" ]
+  a: If the attacker and the victim have shared memory, the attacker can observe the victim's behavior regarding this shared memory by observing the cache state. If the attacker flushes a shared value of interest from the cache, then loads the value again after the victim's execution, based on the time taken it can determine whether the victim accessed the same value.
+  d:
+    "constant-time code": ["make memory accesses independent of secrets"]
+    "avoiding shared memory": ["duplicate shared memory such as libraries"]
+    "removing flush capability": ["making the flush instruction priviliged", "removing the flush instruction"]
+    "removing the contention": ["cache partitioning"]
+    "making the leakage probabilistic": ["randomize the cache replacement policy"]
+  surf: ["shared memory between victim and attacker", "shared cache", "access to a flush instruction"]
+  vect: ["modifying and observing the cache state"]
+  model: ["code execution", "remote"]
+  tag: ["contention", "cache attack"]
 
 
-flush-flush :
+flush_flush:
   # Primary fields
-  a : If the attacker and the victim have shared memory, the attacker can observe the victim's behavior regarding this shared memory by observing the cache state. If the attacker flushes a shared value of interest from the cache, then flushes value again after the victim's execution, based on the time taken it can determine whether the victim accessed the same value (without ever accessing the target value).
-  d :
-    "constant-time code" : [ "make memory accesses independent of secrets" ]
-    "avoiding shared memory" : [ "duplicate shared memory such as libraries" ]
-    "removing flush capability" : [ "making the flush instruction priviliged", "removing the flush instruction" ]
-    "removing the contention" : [ "cache partitioning" ]
-    "making the leakage probabilistic": [ "randomize the cache replacement policy" ]
-  surf : [ "shared memory between victim and attacker", "shared cache", "access to a flush instruction" ]
-  vect : [ "modifying and observing the cache state" ]
-  model : [ "code execution", "remote" ]
-  tag : [ "contention", "cache attack" ]
+  a: If the attacker and the victim have shared memory, the attacker can observe the victim's behavior regarding this shared memory by observing the cache state. If the attacker flushes a shared value of interest from the cache, then flushes value again after the victim's execution, based on the time taken it can determine whether the victim accessed the same value (without ever accessing the target value).
+  d:
+    "constant-time code": ["make memory accesses independent of secrets"]
+    "avoiding shared memory": ["duplicate shared memory such as libraries"]
+    "removing flush capability": ["making the flush instruction priviliged", "removing the flush instruction"]
+    "removing the contention": ["cache partitioning"]
+    "making the leakage probabilistic": ["randomize the cache replacement policy"]
+  surf: ["shared memory between victim and attacker", "shared cache", "access to a flush instruction"]
+  vect: ["modifying and observing the cache state"]
+  model: ["code execution", "remote"]
+  tag: ["contention", "cache attack"]
 
 
-prime-probe :
+prime_probe:
   # Primary fields
-  a : Even without shared memory, the attacker can observe the victim's behavior regarding certain memory addresses by observing the cache state. If the attacker sets up the cache to a known state, then observes which values were evicted, it learns some information about the victim's execution, depending on the cache organization and replacement policy.
-  d :
-    "constant-time code" : [ "make memory accesses independent of secrets" ]
-    "removing the contention" : [ "cache partitioning" ]
-    "making the leakage probabilistic": [ "randomize the cache replacement policy" ]
-  surf : [ "shared cache" ]
-  vect : [ "modifying and observing the cache state" ]
-  model : [ "code execution", "remote" ]
-  tag : [ "contention", "cache attack" ]
+  a: Even without shared memory, the attacker can observe the victim's behavior regarding certain memory addresses by observing the cache state. If the attacker sets up the cache to a known state, then observes which values were evicted, it learns some information about the victim's execution, depending on the cache organization and replacement policy.
+  d:
+    "constant-time code": ["make memory accesses independent of secrets"]
+    "removing the contention": ["cache partitioning"]
+    "making the leakage probabilistic": ["randomize the cache replacement policy"]
+  surf: ["shared cache"]
+  vect: ["modifying and observing the cache state"]
+  model: ["code execution", "remote"]
+  tag: ["contention", "cache attack"]
 
-nemesis :
+nemesis:
   # Primary fields
-  a : The number of executed instructions and their execution time can be measured by an attacker with interrupt capabilities.
-  d :
-    "constant-time code" : [ "make instruction counts and latencies independent of secrets" ]
-    "disabling interrupts" : [ "Disable the attacker's interrupt capabilities" ]
-    "masking the latency" : [ "The execution time of instructions can be masked by applying an interrupt padding scheme" ]
-  surf : [ "interrupt capabilities" ]
-  vect : [ "scheduling and timing interrupts during the victim's execution" ]
-  model : [ "code execution", "remote" ]
-  tag : [ "interrupts" ]
+  a: The number of executed instructions and their execution time can be measured by an attacker with interrupt capabilities.
+  d:
+    "constant-time code": ["make instruction counts and latencies independent of secrets"]
+    "disabling interrupts": ["Disable the attacker's interrupt capabilities"]
+    "masking the latency": ["The execution time of instructions can be masked by applying an interrupt padding scheme"]
+  surf: ["interrupt capabilities"]
+  vect: ["scheduling and timing interrupts during the victim's execution"]
+  model: ["code execution", "remote"]
+  tag: ["interrupts"]
 
-port-contention:
+port_contention:
   # Primary fields
-  a : If the attacker can measure the execution time of code executing in parallel with the victim on the same core, they can detect changes in the timing resulting from the two programs contending for the same execution port on the core.
-  d :
-    "constant-time code" : [ "make execution port usage independent of secrets" ]
-    "disable hyperthreading" : [ "Allocate a dedicated core for the victim process" ]
-  surf : [ "attacker and victim sharing a core" ]
-  vect : [ "code execution on the victim's core in parallel" ]
-  model : [ "code execution", "remote" ]
-  tag : [ "contention", "hyperthreading" ]
+  a: If the attacker can measure the execution time of code executing in parallel with the victim on the same core, they can detect changes in the timing resulting from the two programs contending for the same execution port on the core.
+  d:
+    "constant-time code": ["make execution port usage independent of secrets"]
+    "disable hyperthreading": ["Allocate a dedicated core for the victim process"]
+  surf: ["attacker and victim sharing a core"]
+  vect: ["code execution on the victim's core in parallel"]
+  model: ["code execution", "remote"]
+  tag: ["contention", "hyperthreading"]
 
-bus-contention:
+bus_contention:
   # Primary fields
-  a : If the victim and the attacker (either from code or through DMA) can access memory at the same time, this might lead to contention on the memory bus, making it possible to detect the victim's memory accesses.
-  d :
-    "constant-time code" : [ "make memory accesses independent of secrets" ]
-  surf : [ "shared memory bus" ]
-  vect : [ "accessing memory in parallel with the victim" ]
-  model : [ "code execution", "remote", "physical" ]
-  tag : [ "contention", "memory bus" ]
+  a: If the victim and the attacker (either from code or through DMA) can access memory at the same time, this might lead to contention on the memory bus, making it possible to detect the victim's memory accesses.
+  d:
+    "constant-time code": ["make memory accesses independent of secrets"]
+  surf: ["shared memory bus"]
+  vect: ["accessing memory in parallel with the victim"]
+  model: ["code execution", "remote", "physical"]
+  tag: ["contention", "memory bus"]
 
-page-table:
+page_table:
   # Primary fields
-  a : By monitoring the state of page table mappings, a privileged attacker can reconstruct the access patterns of the victim.
-  d :
-    "constant-time code" : [ "make memory accesses independent of secrets" ]
-    "remove privileges" : [ "make page table management a responsibility of the victim's domain" ]
-  surf : [ "control over page mappings" ]
-  vect : [ "monitoring memory page accesses of the victim" ]
-  model : [ "privileged execution" ]
-  tag : [ "privileged attacker" ]
+  a: By monitoring the state of page table mappings, a privileged attacker can reconstruct the access patterns of the victim.
+  d:
+    "constant-time code": ["make memory accesses independent of secrets"]
+    "remove privileges": ["make page table management a responsibility of the victim's domain"]
+  surf: ["control over page mappings"]
+  vect: ["monitoring memory page accesses of the victim"]
+  model: ["privileged execution"]
+  tag: ["privileged attacker"]
 
 drama:
   # Primary fields
-  a : Contention in the DRAM row buffer can leak the memory access patterns of a victim program.
-  d :
-    "constant-time code" : [ "make memory accesses independent of secrets" ]
-  surf : [ "shared DRAM chip" ]
-  vect : [ "accessing memory in parallel with the victim" ]
-  model : [ "code execution", "remote" ]
-  tag : [ "contention", "dram" ]
+  a: Contention in the DRAM row buffer can leak the memory access patterns of a victim program.
+  d:
+    "constant-time code": ["make memory accesses independent of secrets"]
+  surf: ["shared DRAM chip"]
+  vect: ["accessing memory in parallel with the victim"]
+  model: ["code execution", "remote"]
+  tag: ["contention", "dram"]

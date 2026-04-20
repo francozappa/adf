@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+   {% if site.custom_js %}
+      {% for js_file in site.custom_js %}
+        <script type="text/javascript" src="{{ site.baseurl }}/assets/{{ js_file }}"></script>
+      {% endfor %}
+    {% endif %}
+
+  <body a="{{ site.theme_config.appearance | default: "auto" }}">
+
+    <div><a href="{{ site.baseurl }}/index.html"><img src="{{ site.baseurl }}/assets/ORSHIN-Logo-4C-webicon.png" width="100em" style="float:left;margin-right:3em;"><h1 style="margin-top:1em;">ORSHIN Attack Defense Framework</h1></a></div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="w">
+        {{ content }}
+      </div>
+    </main>
+
+    {%-if site.goat_counter and jekyll.environment == "production"-%}
+      {%-include goat_counter.html-%}
+    {%-endif-%}
+
+    {% if page.custom_js %}
+      {% for js_file in page.custom_js %}
+        <script type="text/javascript" src="{{ site.baseurl }}/assets/{{ js_file }}"></script>
+      {% endfor %}
+    {% endif %}
+  </body>
+</html>

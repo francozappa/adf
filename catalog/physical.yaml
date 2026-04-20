@@ -1,3 +1,6 @@
+---
+# Invasive physical IC threats
+
 attack_0:
   a: ROM optical dump (Retrieving ROM content from pictures)
   d:
@@ -13,6 +16,7 @@ attack_0:
     - Side Channel for non-, semi- and fully invasive techniques
   vect:
     - Reverse-Engineering
+  tag: []
 
 attack_1:
   a:
@@ -28,6 +32,7 @@ attack_1:
     - Side Channel for non-, semi- and fully invasive techniques
   vect:
     - Reverse-Engineering
+  tag: []
 
 attack_2:
   a:
@@ -44,6 +49,7 @@ attack_2:
     - Side Channel for non-, semi- and fully invasive techniques
   vect:
     - Reverse-Engineering
+  tag: []
 
 # Typically suppress branches from the normal execution so as to probe data from a memory
 # in a linear manner.,LCE defines a family of attacks as there are multiple ways of triggering the linear behavior
@@ -66,6 +72,7 @@ attack_3:
     - Reverse-Engineering
     - micro-probing
     - Instruction Flow modification
+  tag: []
 
 attack_4:
   a: FIB modification
@@ -82,6 +89,7 @@ attack_4:
     - read internal signals
   vect:
     - FIB editing
+  tag: []
 
 attack_5:
   a: FIB modification
@@ -99,6 +107,7 @@ attack_5:
     - read internal signals
   vect:
     - FIB editing
+  tag: []
 
 attack_6:
   a: Shield Bypass
@@ -112,6 +121,7 @@ attack_6:
     - counter-measure deactivation
   vect:
     - FIB editing
+  tag: []
 
 attack_7:
   a: Shield Bypass
@@ -124,6 +134,7 @@ attack_7:
     - counter-measure deactivation
   vect:
     - FIB editing
+  tag: []
 
 attack_8:
   a:
@@ -139,6 +150,7 @@ attack_8:
     - Charge pump operation
   vect:
     - FIB editing
+  tag: []
 
 attack_9:
   a:
@@ -154,6 +166,7 @@ attack_9:
     - Charge pump operation
   vect:
     - FIB editing
+  tag: []
 
 attack_10:
   a: Prevent Flash Write
@@ -168,6 +181,7 @@ attack_10:
     - Charge pump operation
   vect:
     - FIB editing
+  tag: []
 
 attack_11:
   a: Voltage Fault Injection instruction modification
@@ -181,6 +195,7 @@ attack_11:
     - instruction corruption
   vect:
     - VCC glitching
+  tag: []
 
 attack_12:
   a: Laser Fault Injection instruction modification
@@ -194,6 +209,7 @@ attack_12:
     - instruction corruption
   vect:
     - LFI
+  tag: []
 
 attack_13:
   a: Electro-Magnetic Fault Injection instruction modification
@@ -206,6 +222,7 @@ attack_13:
     - instruction corruption
   vect:
     - EMA
+  tag: []
 
 attack_14:
   a: Micro-probing Instruction Modification
@@ -219,6 +236,7 @@ attack_14:
     - instruction corruption
   vect:
     - micro-probing
+  tag: []
 
 attack_15:
   a: Use test pads to gain privileges
@@ -232,6 +250,7 @@ attack_15:
     - abuse test circuitry
   vect:
     - micro-probing
+  tag: []
 
 attack_16:
   a: Function mapping from photo-emission
@@ -244,6 +263,7 @@ attack_16:
     - Localize weak spots
   vect:
     - photo-emission microscopy
+  tag: []
 
 attack_17:
   a: Function mapping from EM
@@ -256,6 +276,7 @@ attack_17:
     - Localize weak spots
   vect:
     - EMA
+  tag: []
 
 attack_18:
   a: Fuse reading after their copy to a dedicated RAM
@@ -269,6 +290,7 @@ attack_18:
     - Privilege escalation
   vect:
     - Reverse-Engineering
+  tag: []
 
 attack_19:
   a: Fuse optical readout
@@ -284,6 +306,7 @@ attack_19:
     - Privilege escalation
   vect:
     - Reverse-Engineering
+  tag: []
 
 attack_20:
   a: Fuse modification
@@ -297,6 +320,7 @@ attack_20:
     - Privilege escalation
   vect:
     - FIB editing
+  tag: []
 
 # NOTE: surface privilege escalation might be wrong
 attack_21:
@@ -311,6 +335,7 @@ attack_21:
     - Privilege escalation
   vect:
     - VCC glitching
+  tag: []
 
 attack_22:
   a: LFI JTAG reactivation
@@ -324,6 +349,7 @@ attack_22:
     - Privilege escalation
   vect:
     - LFI
+  tag: []
 
 attack_23:
   a: EMA JTAG reactivation
@@ -337,6 +363,7 @@ attack_23:
     - Privilege escalation
   vect:
     - EMA
+  tag: []
 
 attack_24:
   a: Invasive JTAG reactivation
@@ -351,6 +378,7 @@ attack_24:
   vect:
     - FIB editing
     - micro-probing
+  tag: []
 
 attack_25:
   a: UV erase of Protection bits
@@ -365,3 +393,4 @@ attack_25:
     - Privilege escalation
   vect:
     - UV illummination
+  tag: []

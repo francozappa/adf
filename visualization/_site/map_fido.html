@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>ORSHIN Attack Defense Framework Vizualization | ADF Database and Threat Model Vizualization.</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="ORSHIN Attack Defense Framework Vizualization" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ADF Database and Threat Model Vizualization." />
+<meta property="og:description" content="ADF Database and Threat Model Vizualization." />
+<link rel="canonical" href="https://orshin.github.io/tropic-adf/map_fido.html" />
+<meta property="og:url" content="https://orshin.github.io/tropic-adf/map_fido.html" />
+<meta property="og:site_name" content="ORSHIN Attack Defense Framework Vizualization" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="ORSHIN Attack Defense Framework Vizualization" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"ADF Database and Threat Model Vizualization.","headline":"ORSHIN Attack Defense Framework Vizualization","url":"https://orshin.github.io/tropic-adf/map_fido.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/tropic-adf/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://orshin.github.io/tropic-adf/feed.xml" title="ORSHIN Attack Defense Framework Vizualization" /></head>
+
+
+  <body a="auto">
+
+    <div><a href="/tropic-adf//index.html"><img src="/tropic-adf//assets/ORSHIN-Logo-4C-webicon.png" width="100em" style="float:left;margin-right:3em;"><h1 style="margin-top:1em;">ORSHIN Attack Defense Framework</h1></a></div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="w">
+        <h1 id="fido-device-mitre-emb3d-and-adf-mapping">FIDO Device MITRE EMB3D and ADF Mapping</h1>
+
+<h2 id="device-includes-a-microprocessor-mitre-em3ed-pid-11">Device includes a microprocessor (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-11">MITRE EM3ED PID-11</a>)</h2>
+
+<h3 id="cryptographic-algorithm-implementation">Cryptographic Algorithm Implementation</h3>
+<ul>
+  <li>Keys: Cryptographic Algorithm Implementation  | Cryptographic Algorithm Implementation | Cryptographic Operation</li>
+  <li>Description: Cryptographic algorithm implementation emits exploitable information to the side-channel</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Electromagnetic Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-102.html" target="_blank">MITRE EM3ED TID-102</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/emsca_secel.html">Electromagnetic Side Channel Attack on Secure Element</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Timing Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-330.html" target="_blank">MITRE EM3ED TID-330</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_fido/time_khandles.html">Timing Attack on Key Handles</a></p>
+          </li>
+          <li>
+            <p><a href="ad_fido/sca_sk_microecc.html">ECC Key Extraction via Timing Attack</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Unverified Certificate Authentication Bypass   (<a href="https://emb3d.mitre.org/threats/TID-316.html" target="_blank">MITRE EM3ED TID-316</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/ble_titan.html">Authentication Bypass Exploiting BLE Misconfiguration</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="controller-implementation">Controller Implementation</h3>
+<ul>
+  <li>Keys: Controller Implementation  | Controller Implementation | CPU Implementation | CPU | MCU | Microprocessor | SoC | Microcontroller | Secure Element</li>
+  <li>Description: Controller/CPU Implementation missbehaviour can disclose sensitive data</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_fido/sca_sk_fi.html">Master Key Extraction via Fault Injection Attack</a></p>
+          </li>
+          <li>
+            <p><a href="ad_fido/sca_sk_emfi.html">EMFI Attack against USB STACK</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Firmware Execution</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_deb.html">Firmware Manipulation via Debug Interface due to Flash Memory Read-Out Protection Vulnerabilities</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Firmware Rollback   (<a href="https://emb3d.mitre.org/threats/TID-216.html" target="_blank">MITRE EM3ED TID-216</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_deb.html">Firmware Manipulation via Debug Interface due to Flash Memory Read-Out Protection Vulnerabilities</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Insecure Cryptographic Implementation   (<a href="https://emb3d.mitre.org/threats/TID-318.html" target="_blank">MITRE EM3ED TID-318</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_i2c.html">Firmware Manipulation via Debug Interface due to I2C Protocol Vulnerability</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Power Consumption Analysis Side Channel (<a href="https://emb3d.mitre.org/threats/TID-101.html" target="_blank">MITRE EM3ED TID-101) </a></p>
+      </li>
+      <li>
+        <p>Electromagnetic Analysis Side Channel (<a href="https://emb3d.mitre.org/threats/TID-102.html" target="_blank">MITRE EM3ED TID-102) </a></p>
+      </li>
+      <li>
+        <p>Microarchitectural Side Channels (<a href="https://emb3d.mitre.org/threats/TID-103.html" target="_blank">MITRE EM3ED TID-103) </a></p>
+      </li>
+      <li>
+        <p>Hardware Fault Injection – Control Flow Modification (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-a-hardware-access-port-eg-uart-jtag-mitre-em3ed-pid-15">Device includes a hardware access port (e.g., UART, JTAG) (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-15">MITRE EM3ED PID-15</a>)</h2>
+
+<h3 id="debug-interface">Debug Interface</h3>
+<ul>
+  <li>Keys: Debug Interface</li>
+  <li>Description: Debug Interface provides acces to internal units</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_sk_fi.html">Master Key Extraction via Fault Injection Attack</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Timing Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-330.html" target="_blank">MITRE EM3ED TID-330</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_sk_microecc.html">ECC Key Extraction via Timing Attack</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Firmware Execution</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_deb.html">Firmware Manipulation via Debug Interface due to Flash Memory Read-Out Protection Vulnerabilities</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Firmware Rollback   (<a href="https://emb3d.mitre.org/threats/TID-216.html" target="_blank">MITRE EM3ED TID-216</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_deb.html">Firmware Manipulation via Debug Interface due to Flash Memory Read-Out Protection Vulnerabilities</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Insecure Cryptographic Implementation   (<a href="https://emb3d.mitre.org/threats/TID-318.html" target="_blank">MITRE EM3ED TID-318</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_i2c.html">Firmware Manipulation via Debug Interface due to I2C Protocol Vulnerability</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Firmware/Data Extraction via Hardware Interface (<a href="https://emb3d.mitre.org/threats/TID-115.html" target="_blank">MITRE EM3ED TID-115) </a></p>
+      </li>
+      <li>
+        <p>Latent Privileged Access Port (<a href="https://emb3d.mitre.org/threats/TID-116.html" target="_blank">MITRE EM3ED TID-116) </a></p>
+      </li>
+      <li>
+        <p>Latent Hardware Debug Port Allows Memory/Code Manipulation (<a href="https://emb3d.mitre.org/threats/TID-119.html" target="_blank">MITRE EM3ED TID-119) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="adf-only-surfaces-no-mitre-em3ed-pid">ADF-Only Surfaces (No MITRE EM3ED PID)</h2>
+
+<h3 id="fw">FW</h3>
+<ul>
+  <li>Keys: FW  | Firmware</li>
+  <li>Description: Firmware missbehaviour</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Firmware Execution</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_deb.html">Firmware Manipulation via Debug Interface due to Flash Memory Read-Out Protection Vulnerabilities</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Firmware Rollback   (<a href="https://emb3d.mitre.org/threats/TID-216.html" target="_blank">MITRE EM3ED TID-216</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_fido/sca_deb.html">Firmware Manipulation via Debug Interface due to Flash Memory Read-Out Protection Vulnerabilities</a></p>
+          </li>
+          <li>
+            <p><a href="ad_fido/sk_down.html">Firmware Downgrade Attack</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Insecure Cryptographic Implementation   (<a href="https://emb3d.mitre.org/threats/TID-318.html" target="_blank">MITRE EM3ED TID-318</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_i2c.html">Firmware Manipulation via Debug Interface due to I2C Protocol Vulnerability</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="solokey">SoloKey</h3>
+<ul>
+  <li>Keys: SoloKey  | SoloKey</li>
+  <li>Description: Solo</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_fido/sca_sk_fi.html">Master Key Extraction via Fault Injection Attack</a></p>
+          </li>
+          <li>
+            <p><a href="ad_fido/sca_sk_emfi.html">EMFI Attack against USB STACK</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Timing Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-330.html" target="_blank">MITRE EM3ED TID-330</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_sk_microecc.html">ECC Key Extraction via Timing Attack</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Firmware Rollback   (<a href="https://emb3d.mitre.org/threats/TID-216.html" target="_blank">MITRE EM3ED TID-216</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sk_down.html">Firmware Downgrade Attack</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="usb-stack">USB Stack</h3>
+<ul>
+  <li>Keys: USB Stack  | USB</li>
+  <li>Description: USB Stack</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_sk_emfi.html">EMFI Attack against USB STACK</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-peripheral-chips-and-integrated-data-buses-mitre-em3ed-pid-13">Device includes peripheral chips and integrated data buses (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-13">MITRE EM3ED PID-13</a>)</h2>
+
+<h3 id="bus-interface">Bus Interface</h3>
+<ul>
+  <li>Keys: Bus Interface</li>
+  <li>Description: Bus interface</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Insecure Cryptographic Implementation   (<a href="https://emb3d.mitre.org/threats/TID-318.html" target="_blank">MITRE EM3ED TID-318</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_i2c.html">Firmware Manipulation via Debug Interface due to I2C Protocol Vulnerability</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Unverified Peripheral Firmware Loaded (<a href="https://emb3d.mitre.org/threats/TID-113.html" target="_blank">MITRE EM3ED TID-113) </a></p>
+      </li>
+      <li>
+        <p>Peripheral Data Bus Interception (<a href="https://emb3d.mitre.org/threats/TID-114.html" target="_blank">MITRE EM3ED TID-114) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-memorystorage-external-to-cpu-mitre-em3ed-pid-12">Device includes Memory/Storage (external to CPU) (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-12">MITRE EM3ED PID-12</a>)</h2>
+
+<h3 id="memory">Memory</h3>
+<ul>
+  <li>Keys: Memory  | Non-Volatile Memory</li>
+  <li>Description: Device includes memory/storage external to CPU</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Firmware Execution</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_deb.html">Firmware Manipulation via Debug Interface due to Flash Memory Read-Out Protection Vulnerabilities</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Firmware Rollback   (<a href="https://emb3d.mitre.org/threats/TID-216.html" target="_blank">MITRE EM3ED TID-216</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_deb.html">Firmware Manipulation via Debug Interface due to Flash Memory Read-Out Protection Vulnerabilities</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="private-key">private key</h3>
+<ul>
+  <li>Keys: private key  | Private Key | Key Handle</li>
+  <li>Description: private key</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_sk_fi.html">Master Key Extraction via Fault Injection Attack</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Timing Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-330.html" target="_blank">MITRE EM3ED TID-330</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_fido/time_khandles.html">Timing Attack on Key Handles</a></p>
+          </li>
+          <li>
+            <p><a href="ad_fido/sca_sk_microecc.html">ECC Key Extraction via Timing Attack</a></p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-interactive-applications-services-or-user-interfaces-mitre-em3ed-pid-33">Device includes interactive applications, services, or user interfaces (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-33">MITRE EM3ED PID-33</a>)</h2>
+
+<h3 id="interactive-device">Interactive Device</h3>
+<ul>
+  <li>Keys: Interactive Device  | Interactivity</li>
+  <li>Description: Device includes interactive applications, services, or user interfaces</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Weak Cryptographic Protocol   (<a href="https://emb3d.mitre.org/threats/TID-411.html" target="_blank">MITRE EM3ED TID-411</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/taa_ossh.html">OpenSSH Trivial Authentication Attack</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Insecure Cryptographic Implementation   (<a href="https://emb3d.mitre.org/threats/TID-318.html" target="_blank">MITRE EM3ED TID-318</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/wan_ac.html">Authentication Bypass by Incorrect Access Control in WebAuthN</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Unverified Certificate Authentication Bypass   (<a href="https://emb3d.mitre.org/threats/TID-316.html" target="_blank">MITRE EM3ED TID-316</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/ble_titan.html">Authentication Bypass Exploiting BLE Misconfiguration</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-unauthenticated-services-mitre-em3ed-pid-331">EM3ED-only: Device includes unauthenticated services (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-331" target="_blank">MITRE EM3ED PID-331</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>Remotely Accessible Unauthenticated Services (<a href="https://emb3d.mitre.org/threats/TID-310.html" target="_blank">MITRE EM3ED TID-310) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-authenticated-services-mitre-em3ed-pid-332">Device includes authenticated services (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-332">MITRE EM3ED PID-332</a>)</h2>
+
+<h3 id="authenticated-services">Authenticated Services</h3>
+<ul>
+  <li>Keys: Authenticated Services  | Authenticated | Authentication | Auth Metadata</li>
+  <li>Description: Device includes authenticated services</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Timing Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-330.html" target="_blank">MITRE EM3ED TID-330</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/time_khandles.html">Timing Attack on Key Handles</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Weak Cryptographic Protocol   (<a href="https://emb3d.mitre.org/threats/TID-411.html" target="_blank">MITRE EM3ED TID-411</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/taa_ossh.html">OpenSSH Trivial Authentication Attack</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Insecure Cryptographic Implementation   (<a href="https://emb3d.mitre.org/threats/TID-318.html" target="_blank">MITRE EM3ED TID-318</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/wan_ac.html">Authentication Bypass by Incorrect Access Control in WebAuthN</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Unverified Certificate Authentication Bypass   (<a href="https://emb3d.mitre.org/threats/TID-316.html" target="_blank">MITRE EM3ED TID-316</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/ble_titan.html">Authentication Bypass Exploiting BLE Misconfiguration</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Default Credentials (<a href="https://emb3d.mitre.org/threats/TID-311.html" target="_blank">MITRE EM3ED TID-311) </a></p>
+      </li>
+      <li>
+        <p>Credential Change Mechanism Can Be Abused (<a href="https://emb3d.mitre.org/threats/TID-312.html" target="_blank">MITRE EM3ED TID-312) </a></p>
+      </li>
+      <li>
+        <p>Unauthenticated Session Changes Credential (<a href="https://emb3d.mitre.org/threats/TID-313.html" target="_blank">MITRE EM3ED TID-313) </a></p>
+      </li>
+      <li>
+        <p>Hardcoded Credentials (<a href="https://emb3d.mitre.org/threats/TID-328.html" target="_blank">MITRE EM3ED TID-328) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-cryptographic-mechanism-to-authenticate-users-and-sessions-mitre-em3ed-pid-3322">Device includes cryptographic mechanism to authenticate users and sessions (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-3322">MITRE EM3ED PID-3322</a>)</h2>
+
+<h3 id="authenticated-sessions">Authenticated Sessions</h3>
+<ul>
+  <li>Keys: Authenticated Sessions  | Secure Session</li>
+  <li>Description: Device includes cryptographic mechanism to authenticate users and sessions</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Weak Cryptographic Protocol   (<a href="https://emb3d.mitre.org/threats/TID-411.html" target="_blank">MITRE EM3ED TID-411</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/taa_ossh.html">OpenSSH Trivial Authentication Attack</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Insecure Cryptographic Implementation   (<a href="https://emb3d.mitre.org/threats/TID-318.html" target="_blank">MITRE EM3ED TID-318</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_fido/wan_ac.html">Authentication Bypass by Incorrect Access Control in WebAuthN</a></p>
+          </li>
+          <li>
+            <p><a href="ad_fido/sca_i2c.html">Firmware Manipulation via Debug Interface due to I2C Protocol Vulnerability</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Unverified Certificate Authentication Bypass   (<a href="https://emb3d.mitre.org/threats/TID-316.html" target="_blank">MITRE EM3ED TID-316</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/ble_titan.html">Authentication Bypass Exploiting BLE Misconfiguration</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Incorrect Certificate Verification Allows Authentication Bypass (<a href="https://emb3d.mitre.org/threats/TID-316.html" target="_blank">MITRE EM3ED TID-316) </a></p>
+      </li>
+      <li>
+        <p>Predictable Cryptographic Key (<a href="https://emb3d.mitre.org/threats/TID-317.html" target="_blank">MITRE EM3ED TID-317) </a></p>
+      </li>
+      <li>
+        <p>Insecure Cryptographic Implementation (<a href="https://emb3d.mitre.org/threats/TID-318.html" target="_blank">MITRE EM3ED TID-318) </a></p>
+      </li>
+      <li>
+        <p>Cryptographic Timing Side-Channel (<a href="https://emb3d.mitre.org/threats/TID-330.html" target="_blank">MITRE EM3ED TID-330) </a></p>
+      </li>
+      <li>
+        <p>Weak/Insecure Cryptographic Protocol (<a href="https://emb3d.mitre.org/threats/TID-411.html" target="_blank">MITRE EM3ED TID-411) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-cryptographic-functions-for-sensitive-data-such-as-encryption-or-authentication-mitre-em3ed-pid-4113">Device includes cryptographic functions for sensitive data, such as encryption or authentication (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-4113">MITRE EM3ED PID-4113</a>)</h2>
+
+<h3 id="crypto-secured-communication">Crypto-secured Communication</h3>
+<ul>
+  <li>Keys: Crypto-secured Communication  | Network Cryptography | Secure Channel</li>
+  <li>Description: Device includes cryptographic functions for sensitive data, such as encryption or authentication</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Weak Cryptographic Protocol   (<a href="https://emb3d.mitre.org/threats/TID-411.html" target="_blank">MITRE EM3ED TID-411</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_fido/auth_cl_mitm.html">MiTM between Client and Authenticator</a></p>
+          </li>
+          <li>
+            <p><a href="ad_fido/cl_rp_mitm.html">MiTM between RP and Client</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Insecure Cryptographic Implementation   (<a href="https://emb3d.mitre.org/threats/TID-318.html" target="_blank">MITRE EM3ED TID-318</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_fido/wan_ac.html">Authentication Bypass by Incorrect Access Control in WebAuthN</a></p>
+          </li>
+          <li>
+            <p><a href="ad_fido/wan_sbo.html">Possible Exploitable Crash by Register Stack-Buffer Overflow in WebAuthN</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Authentication Bypass By Message Replay (<a href="https://emb3d.mitre.org/threats/TID-221.html" target="_blank">MITRE EM3ED TID-221) </a></p>
+      </li>
+      <li>
+        <p>Incorrect Certificate Verification Allows Authentication Bypass (<a href="https://emb3d.mitre.org/threats/TID-316.html" target="_blank">MITRE EM3ED TID-316) </a></p>
+      </li>
+      <li>
+        <p>Predictable Cryptographic Key (<a href="https://emb3d.mitre.org/threats/TID-317.html" target="_blank">MITRE EM3ED TID-317) </a></p>
+      </li>
+      <li>
+        <p>Insecure Cryptographic Implementation (<a href="https://emb3d.mitre.org/threats/TID-318.html" target="_blank">MITRE EM3ED TID-318) </a></p>
+      </li>
+      <li>
+        <p>Cryptographic Protocol Side Channel (<a href="https://emb3d.mitre.org/threats/TID-410.html" target="_blank">MITRE EM3ED TID-410) </a></p>
+      </li>
+      <li>
+        <p>Weak/Insecure Cryptographic Protocol (<a href="https://emb3d.mitre.org/threats/TID-411.html" target="_blank">MITRE EM3ED TID-411) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-support-for-firmwaresoftware-updates-mitre-em3ed-pid-27">Device includes support for firmware/software updates (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-27">MITRE EM3ED PID-27</a>)</h2>
+
+<h3 id="fw-sw-upgrade">FW-SW Upgrade</h3>
+<ul>
+  <li>Keys: FW-SW Upgrade  | FW Upgrade</li>
+  <li>Description: Device includes support for firmware/software updates</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Firmware Rollback   (<a href="https://emb3d.mitre.org/threats/TID-216.html" target="_blank">MITRE EM3ED TID-216</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sk_down.html">Firmware Downgrade Attack</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="adf-only-surfaces-no-mitre-em3ed-pid-1">ADF-Only Surfaces (No MITRE EM3ED PID)</h2>
+
+<h3 id="fw-1">FW</h3>
+<ul>
+  <li>Keys: FW  | Firmware</li>
+  <li>Description: Firmware missbehaviour</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Firmware Execution</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_deb.html">Firmware Manipulation via Debug Interface due to Flash Memory Read-Out Protection Vulnerabilities</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Firmware Rollback   (<a href="https://emb3d.mitre.org/threats/TID-216.html" target="_blank">MITRE EM3ED TID-216</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_fido/sca_deb.html">Firmware Manipulation via Debug Interface due to Flash Memory Read-Out Protection Vulnerabilities</a></p>
+          </li>
+          <li>
+            <p><a href="ad_fido/sk_down.html">Firmware Downgrade Attack</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Insecure Cryptographic Implementation   (<a href="https://emb3d.mitre.org/threats/TID-318.html" target="_blank">MITRE EM3ED TID-318</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_i2c.html">Firmware Manipulation via Debug Interface due to I2C Protocol Vulnerability</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="solokey-1">SoloKey</h3>
+<ul>
+  <li>Keys: SoloKey  | SoloKey</li>
+  <li>Description: Solo</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_fido/sca_sk_fi.html">Master Key Extraction via Fault Injection Attack</a></p>
+          </li>
+          <li>
+            <p><a href="ad_fido/sca_sk_emfi.html">EMFI Attack against USB STACK</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Timing Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-330.html" target="_blank">MITRE EM3ED TID-330</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_sk_microecc.html">ECC Key Extraction via Timing Attack</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Firmware Rollback   (<a href="https://emb3d.mitre.org/threats/TID-216.html" target="_blank">MITRE EM3ED TID-216</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sk_down.html">Firmware Downgrade Attack</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="usb-stack-1">USB Stack</h3>
+<ul>
+  <li>Keys: USB Stack  | USB</li>
+  <li>Description: USB Stack</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_sk_emfi.html">EMFI Attack against USB STACK</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="adf-only-surfaces-no-mitre-em3ed-pid-2">ADF-Only Surfaces (No MITRE EM3ED PID)</h2>
+
+<h3 id="fw-2">FW</h3>
+<ul>
+  <li>Keys: FW  | Firmware</li>
+  <li>Description: Firmware missbehaviour</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Firmware Execution</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_deb.html">Firmware Manipulation via Debug Interface due to Flash Memory Read-Out Protection Vulnerabilities</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Firmware Rollback   (<a href="https://emb3d.mitre.org/threats/TID-216.html" target="_blank">MITRE EM3ED TID-216</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_fido/sca_deb.html">Firmware Manipulation via Debug Interface due to Flash Memory Read-Out Protection Vulnerabilities</a></p>
+          </li>
+          <li>
+            <p><a href="ad_fido/sk_down.html">Firmware Downgrade Attack</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Insecure Cryptographic Implementation   (<a href="https://emb3d.mitre.org/threats/TID-318.html" target="_blank">MITRE EM3ED TID-318</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_i2c.html">Firmware Manipulation via Debug Interface due to I2C Protocol Vulnerability</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="solokey-2">SoloKey</h3>
+<ul>
+  <li>Keys: SoloKey  | SoloKey</li>
+  <li>Description: Solo</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_fido/sca_sk_fi.html">Master Key Extraction via Fault Injection Attack</a></p>
+          </li>
+          <li>
+            <p><a href="ad_fido/sca_sk_emfi.html">EMFI Attack against USB STACK</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Timing Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-330.html" target="_blank">MITRE EM3ED TID-330</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_sk_microecc.html">ECC Key Extraction via Timing Attack</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Firmware Rollback   (<a href="https://emb3d.mitre.org/threats/TID-216.html" target="_blank">MITRE EM3ED TID-216</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sk_down.html">Firmware Downgrade Attack</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="usb-stack-2">USB Stack</h3>
+<ul>
+  <li>Keys: USB Stack  | USB</li>
+  <li>Description: USB Stack</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_fido/sca_sk_emfi.html">EMFI Attack against USB STACK</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+      </div>
+    </main>
+  </body>
+</html>

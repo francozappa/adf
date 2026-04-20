@@ -1,0 +1,279 @@
+---
+# modified by Jan Belohoubek 2025-07-26
+
+#
+# This dictionary represents the MITRE EM3ED Hardware Device Property Cathegory
+#
+
+
+surf:
+    Cryptographic Algorithm Implementation:
+        alias: ["Cryptographic Algorithm Implementation", "Cryptographic Operation"]
+        description: "Cryptographic algorithm implementation emits exploitable information to the side-channel"
+        pid: 11  # Device includes a microprocessor -> device contains logic
+    Controller Implementation:
+        alias: ["Controller Implementation", "CPU Implementation", "CPU", "MCU", "Microprocessor", "SoC", "Microcontroller", "Secure Element"]
+        description: "Controller/CPU Implementation missbehaviour can disclose sensitive data"
+        pid: 11  # Device includes a microprocessor -> device contains logic
+    Countermeasure Implementation:
+        alias: ["Counter-measure Implementation"]
+        description: "Disabling countermeasure leads to making the device vulnerable again"
+        pid: 11  # Device includes a microprocessor -> device contains logic
+    Debug Interface:
+        alias: []
+        description: "Debug Interface provides acces to internal units"
+        pid: 15  # Device includes a hardware access port (e.g., UART, JTAG)
+    FW:
+        alias: ["Firmware"]
+        description: "Firmware missbehaviour"
+    Bus Interface:
+        alias: []
+        description: "Bus interface"
+        pid: 13
+    MMU:
+        alias: ["Memory Management", "Memory Management Unit"]
+        description: "Memory management unit"
+        pid: 11
+    Memory:
+        alias: ["Non-Volatile Memory"]
+        description: "Device includes memory/storage external to CPU"
+        pid: 12
+    private key:
+        alias: ["Private Key", "Key Handle"]
+        description: "private key"
+        pid: 12  # Device contains memory, where sensitive data are stored
+    Speculation:
+        alias: ["Speculative HW"]
+        description: "Optimizations leading to speculative execution in the hardware"
+        pid: 11
+    Interactive Device:
+        alias: [Interactivity]
+        description: "Device includes interactive applications, services, or user interfaces"
+        pid: 33
+    Unauthenticated Services:
+        alias: [Unauthenticated]
+        description: "Device includes unauthenticated services"
+        pid: 331
+    Authenticated Services:
+        alias: [Authenticated, Authentication, Auth Metadata]
+        description: "Device includes authenticated services"
+        pid: 332
+    Authenticated Sessions:
+        alias: [Secure Session]
+        description: "Device includes cryptographic mechanism to authenticate users and sessions"
+        pid: 3322
+    Crypto-secured Communication:
+        alias: [Network Cryptography, Secure Channel]
+        description: "Device includes cryptographic functions for sensitive data, such as encryption or authentication"
+        pid: 4113
+    FW-SW Upgrade:
+        alias: [FW Upgrade]
+        description: "Device includes support for firmware/software updates"
+        pid: 27
+    SoloKey:
+        alias: ["SoloKey"]
+        description: "Solo"
+    USB Stack:
+        alias: ["USB"]
+        description: "USB Stack"
+
+vect:
+    Bus tampering:
+        alias: []
+        description: "Bus tampering"
+        tid: 106
+    Electromagnetic Side-Channel:
+        alias: ["Electromagnetic Fault Injection", "Electromagnetic Side-Channel Attack", "Electromagnetic analysis"]
+        description: "Electromagnetic Side-Channel"
+        tid: 102
+    FA:
+        alias: ["Fault Attack", "Fault Injection", "Fault Injection Attack"]
+        description: "Fault Attack"
+        tid: 105
+    FIB:
+        alias: ["FIB Editing"]
+        description: "FIB allows attackers to expose internal chip structures or reroute signals for invasive tampering like micro-probing"
+        tid: 105
+    Timing Side-Channel:
+        alias: ["Timing Attack"]
+        description: "Timing Side-Channel Attack"
+        tid: 330
+    Firmware Execution:
+        alias: ["Firmware", "Instruction Skip", "Control Flow Modification"]
+        description: "Adversary cause firmware missbehaviour"
+    ROM Extraction:
+        alias: ["ROM/NVRAM Data Extraction or Modification"]
+        description: "Contents of non-volatile memory can be directly read out for examination or modification."
+        tid: 108
+    Firmware Rollback:
+        alias: [Rollback, Downgrade]
+        description: "Firmware Update Rollbacks Allowed"
+        tid: 216
+    Weak Cryptographic Protocol:
+        alias: ["Weak Protocol"]
+        description: "The device utilizes a weak or insecure cryptographic protocol or algorithm that can be broken or undermined"
+        tid: 411
+    Insecure Cryptographic Implementation:
+        alias: ["Insecure Impl"]
+        description: "The device uses a cryptographic library or implementation that either introduces an additional software vulnerability within the library"
+        tid: 318
+    Credential Change Abused:
+        alias: []
+        description: "Credential Change Mechanism Can Be Abused"
+        tid: 312
+    Unauthenticated Credential Change:
+        alias: []
+        description: "Unauthenticated Session Changes Credential"
+        tid: 313
+    Unverified Certificate Authentication Bypass:
+        alias: [CertVerify]
+        description: "Incorrect Certificate Verification Allows Authentication Bypass"
+        tid: 316
+
+model:
+    Physical:
+        alias: ["Physical Access", "Evil Maid"]
+        description: "Physical access to the device"
+    Proximity:
+        alias: ["Proximity"]
+        description: "Proximity"
+    Relay:
+        alias: ["Relay"]
+        description: "Relay"
+    Passive:
+        alias: ["passive"]
+        description: "Passive: side-channel observations"
+    Active:
+        alias: ["active"]
+        description: "Active: adversary manipulations with the device"
+    Combined:
+        alias: ["combined"]
+        description: "Active Attack combined with side-channel observations"
+    Remote:
+        alias: ["Remote Code Execution"]
+        description: "Remote Code Execution"
+    Supply Chain:
+        alias: ["Supply Chain"]
+        description: "Supply Chain"
+    MiTM:
+        alias: ["MiTM"]
+        description: "Man-in-the-middle"
+
+tag:
+    Electromagnetic Side-Channel:
+        alias: ["Electromagnetic Side Channel Attack", "Electromagnetic analysis"]
+        description: "Electromagnetic Side-Channel"
+    CPA:
+        alias: ["Correlation Power Analysis", "Correlation Power Analysis Attack"]
+        description: "Correlation Power Analysis"
+    Charge Pump:
+        alias: []
+        description: "Charge Pump is a circuit that generates high voltages for memory operations, and can be a target for physical attacks (e.g., via FIB) to prevent or force data erasure."
+    DPA:
+        alias: ["Differential Power analysis", "Differential Power analysis Attack"]
+        description: "Differential Power analysis"
+    FIB:
+        alias: ["Focused Ion Beam", "FIB Editing"]
+        description: "FIB allows attackers to expose internal chip structures or reroute signals for invasive tampering like micro-probing"
+    Implementation Attack:
+        alias: []
+        description: "Implementation Attack"
+    Micro-probing:
+        alias: ["Microprobing", "Micro Probing"]
+        description: "Using extremely fine and precise probes to physically contact internal nodes of an integrated circuit"
+    Optical Chip Inspection:
+        alias: ["Optical Memory Extraction", "Optical Dump"]
+        description: "Optical chip inspection, usually unathorized memory dump"
+    Power Side-Channel:
+        alias: ["Power Side Channel Attack"]
+        description: "Power Side-Channel Attack"
+    SCA:
+        alias: ["Side-Channel Attack"]
+        description: "Side-Channel Attack"
+    SPA:
+        alias: ["SPA"]
+        description: "Simple-Power Analysis Attack"
+    Timing Side-Channel:
+        alias: ["Timing Attack"]
+        description: "Timing Side Channel Attack"
+    Communication:
+        alias: ["Signal injection"]
+        description: "Injection of invalid transaction, or data altering"
+    Spectre:
+        alias: []
+        description: "SPECTRE attack class"
+    Cache Attack:
+        alias: []
+        description: "Cache attack"
+    SEM:
+        alias: [Scanning Electron Microscope]
+        description: "IC internal structure can be read with electron microscope"
+    UV Illumination:
+        alias: []
+        description: "A UV illumination attack exploits the fact that ultraviolet (UV) light can temporarily alter the state of charge-storing elements in an integrated circuit"
+    Linking:
+        alias: ["Linking"]
+        description: "Linking"
+    NXP A700X Secure Element:
+        alias: ["NXP A700X Secure Element"]
+        description: "NXP A700X Secure Element"
+    BLE:
+        alias: ["BLE"]
+        description: "BLE"
+    Titan Security Key:
+        alias: ["Titan Security Key"]
+        description: "Titan Security Key"
+    NitroKey:
+        alias: ["NitroKey"]
+        description: "NitroKey"
+    NitroKey FIDO U2F:
+        alias: ["NitroKey FIDO U2F"]
+        description: "NitroKey FIDO U2F"
+    I2C:
+        alias: ["I2C"]
+        description: "I2C"
+    EFM8UB:
+        alias: ["EFM8UB"]
+        description: "EFM8UB"
+    ATECC508A:
+        alias: ["ATECC508A"]
+        description: "ATECC508A"
+    NitroKey Pro 2:
+        alias: ["NitroKey Pro 2"]
+        description: "NitroKey Pro 2"
+    Microcontroller:
+        alias: ["Microcontroller"]
+        description: "Microcontroller"
+    STM32F1:
+        alias: ["STM32F1"]
+        description: "STM32F1"
+    SmartMX P5CD081:
+        alias: ["SmartMX P5CD081"]
+        description: "SmartMX P5CD081"
+    SoloKey:
+        alias: ["Solo"]
+        description: "SoloKey"
+    STM32L4:
+        alias: ["STM32L4"]
+        description: "STM32L4"
+    USB Stack:
+        alias: ["USB Stack"]
+        description: "USB Stack"
+    OpenSSH:
+        alias: ["OpenSSH"]
+        description: "OpenSSH"
+    Authentication Bypass:
+        alias: ["Authentication Bypass"]
+        description: "Authentication Bypass"
+    WebAuthN:
+        alias: ["WebAuthN"]
+        description: "WebAuthN"
+    Stack Overflow:
+        alias: ["Stack Overflow"]
+        description: "Stack Overflow"
+    ECC:
+        alias: ["ECC"]
+        description: "ECC"
+    MiTM:
+        alias: ["MiTM"]
+        description: "MiTM"

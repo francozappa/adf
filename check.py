@@ -257,7 +257,7 @@ def check_schema(ad_dict: dict, words=None):
                     lambda s: (len(s) > 0),
                 ),
                 # NOTE: we strip the CVE-nnnn
-                Optional("risk"): And(Schema([float]), lambda s: len(s) > 0),
+                Optional("risk"): And(Schema(float), lambda s: s >= 0),
                 Optional("cve"): And(Schema([str]), lambda s: len(s) > 0),
                 Optional("cwe"): And(Schema([str]), lambda s: len(s) > 0),
                 Optional("capec"): And(Schema([str]), lambda s: len(s) > 0),

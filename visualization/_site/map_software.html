@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>ORSHIN Attack Defense Framework Vizualization | ADF Database and Threat Model Vizualization.</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="ORSHIN Attack Defense Framework Vizualization" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ADF Database and Threat Model Vizualization." />
+<meta property="og:description" content="ADF Database and Threat Model Vizualization." />
+<link rel="canonical" href="https://orshin.github.io/tropic-adf/map_software.html" />
+<meta property="og:url" content="https://orshin.github.io/tropic-adf/map_software.html" />
+<meta property="og:site_name" content="ORSHIN Attack Defense Framework Vizualization" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="ORSHIN Attack Defense Framework Vizualization" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"ADF Database and Threat Model Vizualization.","headline":"ORSHIN Attack Defense Framework Vizualization","url":"https://orshin.github.io/tropic-adf/map_software.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/tropic-adf/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://orshin.github.io/tropic-adf/feed.xml" title="ORSHIN Attack Defense Framework Vizualization" /></head>
+
+
+  <body a="auto">
+
+    <div><a href="/tropic-adf//index.html"><img src="/tropic-adf//assets/ORSHIN-Logo-4C-webicon.png" width="100em" style="float:left;margin-right:3em;"><h1 style="margin-top:1em;">ORSHIN Attack Defense Framework</h1></a></div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="w">
+        <h1 id="software-mitre-emb3d-and-adf-mapping">Software MITRE EMB3D and ADF Mapping</h1>
+
+<h2 id="device-includes-a-bootloader-mitre-em3ed-pid-21">Device includes a bootloader (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-21">MITRE EM3ED PID-21</a>)</h2>
+
+<h3 id="bootloader">Bootloader</h3>
+<ul>
+  <li>Keys: Bootloader  | Bootloader Execution</li>
+  <li>Description: Bootloader execution</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FI   (<a href="https://emb3d.mitre.org/threats/TID-110.html" target="_blank">MITRE EM3ED TID-110</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_software/fw_verif_skip.html">Firmware verification skip</a></p>
+          </li>
+          <li>
+            <p><a href="ad_software/buff_overflow_fi.html">Buffer overflow exploitation after fault injection</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Side-Channel Leakage   (<a href="https://emb3d.mitre.org/threats/TID-330.html" target="_blank">MITRE EM3ED TID-330</a>)</p>
+
+        <ul>
+          <li><a href="ad_software/boot_cf_sca.html">Secure bootloader control flow analysis</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Buffer Manipulation   (<a href="https://emb3d.mitre.org/threats/TID-327.html" target="_blank">MITRE EM3ED TID-327</a>)</p>
+
+        <ul>
+          <li><a href="ad_software/code_exe.html">Arbitrary code execution</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Timing Attack   (<a href="https://emb3d.mitre.org/threats/TID-330.html" target="_blank">MITRE EM3ED TID-330</a>)</p>
+
+        <ul>
+          <li><a href="ad_software/timing_info.html">Collection of timing information</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Inadequate Bootloader Protection and Verification (<a href="https://emb3d.mitre.org/threats/TID-201.html" target="_blank">MITRE EM3ED TID-201) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-peripheral-chips-and-integrated-data-buses-mitre-em3ed-pid-13">Device includes peripheral chips and integrated data buses (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-13">MITRE EM3ED PID-13</a>)</h2>
+
+<h3 id="bus">BUS</h3>
+<ul>
+  <li>Keys: BUS</li>
+  <li>Description: Shared BUS</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Memory   (<a href="https://emb3d.mitre.org/threats/TID-206.html" target="_blank">MITRE EM3ED TID-206</a>)</p>
+
+        <ul>
+          <li><a href="ad_software/bus_contention.html">If the victim and the attacker (either from code or through DMA) can access memory at the same time, this might lead to contention on the memory bus, making it possible to detect the victim’s memory accesses.</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Unverified Peripheral Firmware Loaded (<a href="https://emb3d.mitre.org/threats/TID-113.html" target="_blank">MITRE EM3ED TID-113) </a></p>
+      </li>
+      <li>
+        <p>Peripheral Data Bus Interception (<a href="https://emb3d.mitre.org/threats/TID-114.html" target="_blank">MITRE EM3ED TID-114) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-support-for-manual-memory-management-programming-languages-eg-c-c-mitre-em3ed-pid-3122">Device includes support for manual memory management programming languages (e.g. C, C++) (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-3122">MITRE EM3ED PID-3122</a>)</h2>
+
+<h3 id="non-volatile-memory">Non-Volatile Memory</h3>
+<ul>
+  <li>Keys: Non-Volatile Memory  | Memory Management</li>
+  <li>Description: Memory management issues</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Buffer Manipulation   (<a href="https://emb3d.mitre.org/threats/TID-327.html" target="_blank">MITRE EM3ED TID-327</a>)</p>
+
+        <ul>
+          <li><a href="ad_software/code_exe.html">Arbitrary code execution</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Malicious Firmware   (<a href="https://emb3d.mitre.org/threats/TID-203.html" target="_blank">MITRE EM3ED TID-203</a>)</p>
+
+        <ul>
+          <li><a href="ad_software/mal_firmw.html">Key material extraction from SE through malicious firmware</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Out of Bounds Memory Access (<a href="https://emb3d.mitre.org/threats/TID-327.html" target="_blank">MITRE EM3ED TID-327) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-a-microprocessor-mitre-em3ed-pid-11">Device includes a microprocessor (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-11">MITRE EM3ED PID-11</a>)</h2>
+
+<h3 id="cache-memory">Cache Memory</h3>
+<ul>
+  <li>Keys: Cache Memory  | Cache</li>
+  <li>Description: Shared memory between victim and attacker</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Cache State   (<a href="https://emb3d.mitre.org/threats/TID-103.html" target="_blank">MITRE EM3ED TID-103</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_software/evict_reload.html">If the attacker and the victim have shared memory, the attacker can observe the victim’s behavior regarding this shared memory by observing the cache state. If the attacker evicts a shared value of interest from the cache, then loads the value again after the victim’s execution, based on the time taken it can determine whether the victim accessed the same value.</a></p>
+          </li>
+          <li>
+            <p><a href="ad_software/flush_reload.html">If the attacker and the victim have shared memory, the attacker can observe the victim’s behavior regarding this shared memory by observing the cache state. If the attacker flushes a shared value of interest from the cache, then loads the value again after the victim’s execution, based on the time taken it can determine whether the victim accessed the same value.</a></p>
+          </li>
+          <li>
+            <p><a href="ad_software/flush_flush.html">If the attacker and the victim have shared memory, the attacker can observe the victim’s behavior regarding this shared memory by observing the cache state. If the attacker flushes a shared value of interest from the cache, then flushes value again after the victim’s execution, based on the time taken it can determine whether the victim accessed the same value (without ever accessing the target value).</a></p>
+          </li>
+          <li>
+            <p><a href="ad_software/prime_probe.html">Even without shared memory, the attacker can observe the victim’s behavior regarding certain memory addresses by observing the cache state. If the attacker sets up the cache to a known state, then observes which values were evicted, it learns some information about the victim’s execution, depending on the cache organization and replacement policy.</a></p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="memory">Memory</h3>
+<ul>
+  <li>Keys: Memory  | Shared Memory</li>
+  <li>Description: Shared memory between victim and attacker</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Memory   (<a href="https://emb3d.mitre.org/threats/TID-206.html" target="_blank">MITRE EM3ED TID-206</a>)</p>
+
+        <ul>
+          <li><a href="ad_software/drama.html">Contention in the DRAM row buffer can leak the memory access patterns of a victim program.</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="cryptographic-algorithm-implementation">Cryptographic Algorithm Implementation</h3>
+<ul>
+  <li>Keys: Cryptographic Algorithm Implementation  | Cryptographic Operation</li>
+  <li>Description: Cryptographic algorithm implementation emits exploitable information to the side-channel</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Side-Channel Leakage   (<a href="https://emb3d.mitre.org/threats/TID-330.html" target="_blank">MITRE EM3ED TID-330</a>)</p>
+
+        <ul>
+          <li><a href="ad_software/data_extraction.html">Sensitive data extraction</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="interrupt-capabilities">Interrupt Capabilities</h3>
+<ul>
+  <li>Keys: Interrupt Capabilities</li>
+  <li>Description: Attacker can utilize target interrupt capabilities</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Code Execution   (<a href="https://emb3d.mitre.org/threats/TID-301.html" target="_blank">MITRE EM3ED TID-301</a>)</p>
+
+        <ul>
+          <li><a href="ad_software/nemesis.html">The number of executed instructions and their execution time can be measured by an attacker with interrupt capabilities.</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="priviledged-mode">Priviledged Mode</h3>
+<ul>
+  <li>Keys: Priviledged Mode</li>
+  <li>Description: Attacker can utilize target priviledged execution mode</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Code Execution   (<a href="https://emb3d.mitre.org/threats/TID-301.html" target="_blank">MITRE EM3ED TID-301</a>)</p>
+
+        <ul>
+          <li><a href="ad_software/page_table.html">By monitoring the state of page table mappings, a privileged attacker can reconstruct the access patterns of the victim.</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="hyperthreading">Hyperthreading</h3>
+<ul>
+  <li>Keys: Hyperthreading</li>
+  <li>Description: Attacker and victim share the same core</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Code Execution   (<a href="https://emb3d.mitre.org/threats/TID-301.html" target="_blank">MITRE EM3ED TID-301</a>)</p>
+
+        <ul>
+          <li><a href="ad_software/port_contention.html">If the attacker can measure the execution time of code executing in parallel with the victim on the same core, they can detect changes in the timing resulting from the two programs contending for the same execution port on the core.</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Power Consumption Analysis Side Channel (<a href="https://emb3d.mitre.org/threats/TID-101.html" target="_blank">MITRE EM3ED TID-101) </a></p>
+      </li>
+      <li>
+        <p>Electromagnetic Analysis Side Channel (<a href="https://emb3d.mitre.org/threats/TID-102.html" target="_blank">MITRE EM3ED TID-102) </a></p>
+      </li>
+      <li>
+        <p>Microarchitectural Side Channels (<a href="https://emb3d.mitre.org/threats/TID-103.html" target="_blank">MITRE EM3ED TID-103) </a></p>
+      </li>
+      <li>
+        <p>Hardware Fault Injection – Control Flow Modification (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-softwarehardware-root-of-trust-mitre-em3ed-pid-25">Device includes software/hardware root of trust (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-25">MITRE EM3ED PID-25</a>)</h2>
+
+<h3 id="firmware-rot">Firmware RoT</h3>
+<ul>
+  <li>Keys: Firmware RoT  | Firmware RoT</li>
+  <li>Description: Device includes software root of trust</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Malicious Firmware   (<a href="https://emb3d.mitre.org/threats/TID-203.html" target="_blank">MITRE EM3ED TID-203</a>)</p>
+
+        <ul>
+          <li><a href="ad_software/mal_firmw.html">Key material extraction from SE through malicious firmware</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-a-hardware-access-port-eg-uart-jtag-mitre-em3ed-pid-15">Device includes a hardware access port (e.g., UART, JTAG) (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-15">MITRE EM3ED PID-15</a>)</h2>
+
+<h3 id="debug-interface">Debug Interface</h3>
+<ul>
+  <li>Keys: Debug Interface</li>
+  <li>Description: Debug Interface provides acces to internal units</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FI   (<a href="https://emb3d.mitre.org/threats/TID-110.html" target="_blank">MITRE EM3ED TID-110</a>)</p>
+
+        <ul>
+          <li><a href="ad_software/buff_overflow_fi.html">Buffer overflow exploitation after fault injection</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Firmware/Data Extraction via Hardware Interface (<a href="https://emb3d.mitre.org/threats/TID-115.html" target="_blank">MITRE EM3ED TID-115) </a></p>
+      </li>
+      <li>
+        <p>Latent Privileged Access Port (<a href="https://emb3d.mitre.org/threats/TID-116.html" target="_blank">MITRE EM3ED TID-116) </a></p>
+      </li>
+      <li>
+        <p>Latent Hardware Debug Port Allows Memory/Code Manipulation (<a href="https://emb3d.mitre.org/threats/TID-119.html" target="_blank">MITRE EM3ED TID-119) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+      </div>
+    </main>
+  </body>
+</html>

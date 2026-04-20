@@ -5,7 +5,7 @@
 
 # specific attacks
 
-time_khandles: # child of auth_sca
+time_khandles:  # child of auth_sca
   a: Timing Attack on Key Handles
   d:
     Reduce Time Difference between Checking Random and Target Key Handles:
@@ -123,10 +123,10 @@ wan_sbo:
 sca_i2c:
   a: Firmware Manipulation via Debug Interface due to I2C Protocol Vulnerability
   d:
-    Protect Credential Transmission between Microcontroller and Secure Element :
-    [
-      Insource MAC Hash Computation to the Microcontroller
-    ]
+    Protect Credential Transmission between Microcontroller and Secure Element:
+      [
+        Insource MAC Hash Computation to the Microcontroller
+      ]
   year: 2020
   surf: [Authenticator, NitroKey, Microcontroller, Secure Element, I2C Protocol, Firmware]
   vect: [Crypto Attack, Firmware Manipulation]
@@ -136,21 +136,21 @@ sca_i2c:
   cve: ["12061"]
   cwe: ["319", "523"]
   capec: ["37"]
-  
+
 # https://eprint.iacr.org/2021/640.pdf
 
 sca_deb:
   a: Firmware Manipulation via Debug Interface due to Flash Memory Read-Out Protection Vulnerabilities
   d:
-    Protection against Flawed Read-out Protection :
-    [
-      Store the OTP Secrets Encrypted in Flash Memory and Derive a Key from this PIN
-    ]
-    Prevent Offline Brute Force Attacks :
-    [
-      Require Minimum PIN length,
-      Use Hash-Based Key Derivation Function
-    ]
+    Protection against Flawed Read-out Protection:
+      [
+        Store the OTP Secrets Encrypted in Flash Memory and Derive a Key from this PIN
+      ]
+    Prevent Offline Brute Force Attacks:
+      [
+        Require Minimum PIN length,
+        Use Hash-Based Key Derivation Function
+      ]
   year: 2020
   surf: [Authenticator, NitroKey, Microcontroller, Firmware, Flash Memory]
   vect: [Firmware Manipulation]

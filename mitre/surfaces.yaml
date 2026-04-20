@@ -1,0 +1,113 @@
+---
+# NOTE:
+# List of surfaces and PIDs as defined by MITRE v2.1
+#
+# template by Jan Belohoubek 2025-08-08
+
+#
+# This dictionary represents the MITRE EMB3D Hardware PID List
+#
+
+
+
+Device includes a microprocessor:
+    pid: 11
+
+Device includes Memory/Storage (external to CPU):
+    pid: 12
+
+Device includes buses for external memory/storage:
+    pid: 121
+
+Device includes discrete chips/devices that have access to the same physical memory:
+    pid: 122
+
+Device includes ROM, VRAM, or removable Storage:
+    pid: 123
+
+Device includes Random Access Memory (RAM) chips:
+    pid: 124
+
+Device includes DDR DRAM:
+    pid: 1241
+
+Device includes peripheral chips and integrated data buses:
+    pid: 13
+
+Device includes external peripheral interconnects (e.g., USB, Serial):
+    pid: 14
+
+Device includes a hardware access port (e.g., UART, JTAG):
+    pid: 15
+
+Device includes a bootloader:
+    pid: 21
+
+Device includes a debugging capabilities:
+    pid: 22
+
+Device includes OS/kernel:
+    pid: 23
+
+Device includes an operating system that uses drivers/modules that can be loaded:
+    pid: 231
+
+Device lacks an access enforcement/privilege mechanism:
+    pid: 2321
+
+Device includes and enforces OS user accounts:
+    pid: 23221
+
+Device includes a memory management model, including protections of memory access (read-only/, executable, writable):
+    pid: 23222
+
+Device includes virtualization and containers:
+    pid: 24
+
+Device includes containers:
+    pid: 241
+
+Device includes hypervisor:
+    pid: 242
+
+Device includes software/hardware root of trust:
+    pid: 25
+
+Root of Trust is physically accessible or is not immutable:
+    pid: 251
+
+Root of Trust is immutable:
+    pid: 252
+
+Device lacks firmware/software update support:
+    pid: 26
+
+Device includes support for firmware/software updates:
+    pid: 27
+
+Device has firmware or software that is not cryptographically checked for integrity validation:
+    pid: 271
+
+Device includes cryptographic firmware/software integrity protection mechanisms:
+    pid: 272
+
+Device includes a shared key for firmware integrity validation:
+    pid: 2721
+
+Device includes digitally signed firmware (with private key):
+    pid: 2722
+
+Device has unencrypted firmware updates:
+    pid: 273
+
+Device includes user firmware/software version selection during updates:
+    pid: 274
+
+Device includes remotely-initiated firmware/software updates:
+    pid: 275
+
+Device stores logs of system events and information:
+    pid: 28
+
+Application-level software is present and running on the device:
+    pid: 31

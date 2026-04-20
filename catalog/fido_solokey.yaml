@@ -1,13 +1,14 @@
+---
 # SOLOKEY AD
 
-sca_sk_microecc:  #related to auth_sca
+sca_sk_microecc:  # related to auth_sca
   a: ECC Key Extraction via Timing Attack
   d:
-    Protection against SCA in micro-ecc Library :
-    [
-      Randomization of the Projective Coordinates in the ECDSA Implementation,
-      Randomize Elliptic Curve Base Point
-    ]
+    Protection against SCA in micro-ecc Library:
+      [
+        Randomization of the Projective Coordinates in the ECDSA Implementation,
+        Randomize Elliptic Curve Base Point
+      ]
   year: 2020
   surf: [SoloKey, Solo, STM32L4, Microcontroller, micro-ecc Library, Debug Interface]
   vect: [Timing Attack]
@@ -20,16 +21,16 @@ sca_sk_microecc:  #related to auth_sca
 
 # https://eprint.iacr.org/2021/640.pdf
 
-sca_sk_fi:  #related to auth_sca
+sca_sk_fi:  # related to auth_sca
   a: Master Key Extraction via Fault Injection Attack
   d:
-    Protection against Flawed Read-out Protection :
-    [
-      Load Master Key into SRAM only when Needed,
-      Do not Store the Master Key Permanently or Use SRAM2 as Storage,
-      Improve Present Option Byte Verification during Device Initialization,
-      Enforce a PIN Entry for All Functionality
-    ]
+    Protection against Flawed Read-out Protection:
+      [
+        Load Master Key into SRAM only when Needed,
+        Do not Store the Master Key Permanently or Use SRAM2 as Storage,
+        Improve Present Option Byte Verification during Device Initialization,
+        Enforce a PIN Entry for All Functionality
+      ]
   year: 2020
   surf: [SoloKey, Solo, STM32L4, Microcontroller, Debug Interface]
   vect: [Crypto Attack, Fault Injection Attack]
@@ -42,12 +43,13 @@ sca_sk_fi:  #related to auth_sca
 
 # https://eprint.iacr.org/2021/640.pdf
 
-sk_down: #related to auth_sca
+sk_down:  # related to auth_sca
   a: Firmware Downgrade Attack
-  d: Eliminate the Possibility to Upload the Firmare in Unordered Chuncks:
-    [
-      Require Ascending Order of Firmware Chuncks
-    ]
+  d:
+    Eliminate the Possibility to Upload the Firmare in Unordered Chuncks:
+      [
+        Require Ascending Order of Firmware Chuncks
+      ]
   year: 2020
   surf: [SoloKey, Solo, Firmware]
   vect: [Firmware Rollback, Fault Injection Attack]
@@ -60,32 +62,33 @@ sk_down: #related to auth_sca
 
   # https://solokeys.com/blogs/news/security-analysis-of-the-solo-firmware-by-doyensec
 
-  sca_sk_emfi: #related to auth_sca
-    a: EMFI Attack against USB STACK
-    d:
-      Protection against Read Past End of Buffer Attacks :
+sca_sk_emfi:  # related to auth_sca
+  a: EMFI Attack against USB STACK
+  d:
+    Protection against Read Past End of Buffer Attacks:
       [
         Do Not Store Sensitive Data in Memory too Close to USB Descriptors,
         Use Memory Protection Unit,
         Limit Respose Sizes by Using a Mask in USB Stack,
         Random Timing Jitter
       ]
-    year: 2020
-    surf: [SoloKey, USB Stack]
-    vect: [Electromagnetic Attack]
-    model: [SCA, Evil Maid]
-    tag: [SoloKey, USB Stack]
-    risk: []
-    cve: []
-    cwe: ["1319"]
-    capec: ["624"]
+  year: 2020
+  surf: [SoloKey, USB Stack]
+  vect: [Electromagnetic Attack]
+  model: [SCA, Evil Maid]
+  tag: [SoloKey, USB Stack]
+  risk: []
+  cve: []
+  cwe: ["1319"]
+  capec: ["624"]
+
 
 # https://www.usenix.org/system/files/woot19-paper_oflynn_0.pdf
 
 # ------------------------------------------------------------------------------------------------
 # Solokey countermeasures against FIDO specific attacks:
 
-  time_khandles: # child of auth_sca
+time_khandles:  # child of auth_sca
   a: Timing Attack on Key Handles
   d:
     Reduce Time Difference between Checking Random and Target Key Handles:
@@ -105,7 +108,7 @@ sk_down: #related to auth_sca
 
   # Solokey countermeasures against FIDO general attacks:
 
-  auth_sca:
+auth_sca:
   a: Side-Channel Attack on Authenticator to Extract Keys and Clone It
   d:
     Robust Device: [
@@ -115,7 +118,6 @@ sk_down: #related to auth_sca
     Secure Microcontroller: [
       NXP LPC55S69 with Secure Boot + Asymetric Crypto Acceleration + Filesystem Encryption
     ]
-  year:
   surf: [Authenticator]
   vect: [
     Firmware Rollback,

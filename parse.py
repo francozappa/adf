@@ -119,6 +119,7 @@ def parse(path: Path) -> dict:
         case ".xml":
             parsed_dict = _parse_xml(path)
         case _:
+            print(str(path) + ": invalid extension!")
             raise Exception
 
     return parsed_dict

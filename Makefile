@@ -6,25 +6,13 @@ END='\033[0m]'	# No Color
 DONE="$(GREEN)DONE$(END)"
 PROGRESS="$(YELLOW)....$(END)"
 
-.PHONY: test
-
+.PHONY: test model
 bt-y2j:
 	@cat bt.yaml | \yq > bt.json
 
-proc-y2j:
-	@cat process.yaml | \yq > proc.json
+check:
+	@python check.py -i catalog/bt.yaml
 
-es-check:
-	@python check.py yaml/e-scooters.yaml
-
-ft-check:
-	@python check.py yaml/fitness-trackers.yaml
-
-bt-check:
-	@python check.py yaml/bt.yaml
-
-proc-check:
-	@python check.py yaml/proc.yaml
 
 analyze: check
 	@python analyze.py
@@ -43,6 +31,11 @@ test-parse:
 
 test-check:
 	@pytest check_test.py
+
+model:
+	@echo "Generating Threat Model"
+	@cd visualization && jekyll build && cd ..
+	@echo "$(DONE) Model generated, open visualization/_site/index.html"
 
 setup: requirements.txt
 	@echo "$(PROGRESS) Installing requirements"

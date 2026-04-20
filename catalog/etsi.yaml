@@ -1,8 +1,9 @@
-#5.2: Implement a means to manage reports of vulnerabilities
+---
+# 5.2: Implement a means to manage reports of vulnerabilities
 
 5.2-1-vulnerability-disclosure-policy:
   a: A vulnerability discovered by a third party is not communicated to the manufacturer and therefore is left unsolved
-  d: 
+  d:
     Define and publish a vulnerability disclosure policy: [
       Define contact information for the reporting of issues
       Define timelines for initial acknowledgement of receipt of a vulnerability report
@@ -17,6 +18,7 @@
   surf: [Process, Product vulnerability, 3rd-party components, Maintenance phase]
   vect: [Lack of communication, Lack of process]
   tag: [Vulnerability, Disclosure, Process]
+  model: []
 
 
 5.2-2-vulnerability-timely-addressing:
@@ -31,10 +33,10 @@
   surf: [Process, Product vulnerability, 3rd-party components, Maintenance phase]
   vect: [Lack of response, Delayed fixes]
   tag: [Vulnerability, Timelines, Process]
-
+  model: []
 
 5.2-3-vulnerability-monitoring:
-a: Vulnerabilities are not identified or addressed, leaving users exposed to risks
+  a: Vulnerabilities are not identified or addressed, leaving users exposed to risks
   d:
     Maintain and monitor a Software Bill of Materials (SBOM): [
       List all software components and sub-components, including third-party and open-source
@@ -49,14 +51,14 @@ a: Vulnerabilities are not identified or addressed, leaving users exposed to ris
   surf: [Process, Product vulnerability, 3rd-party components]
   vect: [Unmonitored vulnerabilities, Outdated components]
   tag: [Vulnerability, Monitoring, SBOM]
+  model: []
 
-
-#5.3: Keep software updated
+# 5.3: Keep software updated
 
 5.3-8-timely-updates:
-a: Delays in deploying security updates expose devices to critical vulnerabilities and large-scale adverse effects
-  d: 
-    Ensure timely security updates: [ 
+  a: Delays in deploying security updates expose devices to critical vulnerabilities and large-scale adverse effects
+  d:
+    Ensure timely security updates: [
       Evaluate vulnerabilities severity
       Prioritize fixes for the most critical vulnerabilities
       Notify users promptly once a fix is available
@@ -65,24 +67,26 @@ a: Delays in deploying security updates expose devices to critical vulnerabiliti
   surf: [Process, Product vulnerability, 3rd-party components]
   vect: [Slow response time]
   tag: [Updates, Timeliness, Vulnerability]
+  model: []
 
 
 5.3-13-support-period:
   a: The support period for software updates is not communicated to users, leading to confusion or unmet expectations.
-  d: 
-    Publish the defined support period in an accessible and transparent manner: [ 
+  d:
+    Publish the defined support period in an accessible and transparent manner: [
       Clearly display the support period on the official website or other accessible platforms
       Ensure the support period is communicated at the point of purchase and throughout the product lifecycle
     ]
   surf: [Process, Support, Product documentation]
   vect: [Lack of transparency, Miscommunication]
   tag: [Support, Transparency, Communication]
+  model: []
 
 
-5.3-14-hardware-replacement-support: #tbd
+5.3-14-hardware-replacement-support:  # tbd
   a: Users of constraint devices are unaware of the available hardware replacement support, leading to security and usability concerns
-  d: 
-    Publish clear and transparent information for constraint devices: [ 
+  d:
+    Publish clear and transparent information for constraint devices: [
       Provide the rationale for the absence of software updates
       Define and publicize the period of hardware replacement support
       Clearly communicate the method for accessing replacement support
@@ -90,18 +94,19 @@ a: Delays in deploying security updates expose devices to critical vulnerabiliti
   surf: [Process, Support, Product documentation]
   vect: [Lack of transparency, Miscommunication]
   tag: [Support, Transparency, Constrained devices, Communication]
+  model: []
 
 
-#5.5: Communicate securely
+# 5.5: Communicate securely
 
 5.5-8-secure-key-management-process:
-a: Critical security parameters are mishandled or poorly managed, leading to unauthorized access or compromised device security
-  d: 
-    Define and maintain secure management processes for critical security parameters: [ 
+  a: Critical security parameters are mishandled or poorly managed, leading to unauthorized access or compromised device security
+  d:
+    Define and maintain secure management processes for critical security parameters: [
       Adopt open, peer-reviewed standards for key management
       Regularly review and update processes to address emerging threats
     ]
-    Ensure secure lifecycle management of critical security parameters: [ 
+    Ensure secure lifecycle management of critical security parameters: [
       Secure generation of parameters
       Secure storage of parameters
       Secure distribution of parameters
@@ -111,13 +116,14 @@ a: Critical security parameters are mishandled or poorly managed, leading to una
   surf: [Processes, Security parameters, Lifecycle]
   vect: [Lack of process, Poor key management, Mishandling]
   tag: [Key management, Lifecycle]
+  model: []
 
-#5.6: Minimize exposed attack surfaces
+# 5.6: Minimize exposed attack surfaces
 
 5.6-6-minimize-code:
-a: Unnecessary or unused code increases the attack surface, leading to potential vulnerabilities in the device
-  d: 
-    Ensure that code is minimized to essential functionality: [ 
+  a: Unnecessary or unused code increases the attack surface, leading to potential vulnerabilities in the device
+  d:
+    Ensure that code is minimized to essential functionality: [
       Identify and remove dead or unused code during development
       Avoid including libraries or modules not required for the device's operation
       Perform regular code reviews to verify functionality and minimize bloat
@@ -125,12 +131,13 @@ a: Unnecessary or unused code increases the attack surface, leading to potential
   surf: [Process, Codebase, Software]
   vect: [Dead code, Oversized libraries]
   tag: [Code, Minimization]
+  model: []
 
 
 5.6-7-least-necessary-privileges:
-a: Software running with unnecessary privileges increases the risk of exploitation
-  d: 
-    Ensure software runs with the least necessary privileges: [ 
+  a: Software running with unnecessary privileges increases the risk of exploitation
+  d:
+    Ensure software runs with the least necessary privileges: [
       Minimize the use of root privileges, especially for network-facing daemons or processes
       Assign separate, unprivileged users for each application or service in multi-user operating systems
       Leverage platform security features such as stack canaries and ASLR to mitigate memory corruption attacks
@@ -138,12 +145,13 @@ a: Software running with unnecessary privileges increases the risk of exploitati
   surf: [Processes, Privileges, Software]
   vect: [Excessive privileges, Misconfiguration, Memory corruption]
   tag: [Privileges]
+  model: []
 
 
 5.6-9-secure-development-process:
-a: Software developed without a secure processes increases the risk of introducing vulnerabilities into the device.
-  d: 
-    Implement secure development practices across all phases of the software lifecycl: [ 
+  a: Software developed without a secure processes increases the risk of introducing vulnerabilities into the device.
+  d:
+    Implement secure development practices across all phases of the software lifecycle: [
       Conduct threat modeling to define security requirements
       Design software securely, ensuring proper implementation of the security requirements
       Develop software securely, see @5.6-6-minimize-code
@@ -153,3 +161,4 @@ a: Software developed without a secure processes increases the risk of introduci
   surf: [Process, Software development, Lifecycle management]
   vect: [Lack of process, Insecure development]
   tag: [Development, Security, Lifecycle]
+  model: []

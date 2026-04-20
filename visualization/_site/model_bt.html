@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>ORSHIN Attack Defense Framework Vizualization | ADF Database and Threat Model Vizualization.</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="ORSHIN Attack Defense Framework Vizualization" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ADF Database and Threat Model Vizualization." />
+<meta property="og:description" content="ADF Database and Threat Model Vizualization." />
+<link rel="canonical" href="https://orshin.github.io/tropic-adf/model_bt.html" />
+<meta property="og:url" content="https://orshin.github.io/tropic-adf/model_bt.html" />
+<meta property="og:site_name" content="ORSHIN Attack Defense Framework Vizualization" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="ORSHIN Attack Defense Framework Vizualization" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"ADF Database and Threat Model Vizualization.","headline":"ORSHIN Attack Defense Framework Vizualization","url":"https://orshin.github.io/tropic-adf/model_bt.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/tropic-adf/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://orshin.github.io/tropic-adf/feed.xml" title="ORSHIN Attack Defense Framework Vizualization" /></head>
+
+
+  <body a="auto">
+
+    <div><a href="/tropic-adf//index.html"><img src="/tropic-adf//assets/ORSHIN-Logo-4C-webicon.png" width="100em" style="float:left;margin-right:3em;"><h1 style="margin-top:1em;">ORSHIN Attack Defense Framework</h1></a></div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="w">
+        <h1 id="bluetooth-threat-model">Bluetooth Threat Model</h1>
+
+<h2 id="device-includes-a-microprocessor-mitre-em3ed-pid-11">Device includes a microprocessor (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-11">MITRE EM3ED PID-11</a>)</h2>
+
+<h3 id="controller-implementation">Controller Implementation</h3>
+<ul>
+  <li>Keys: Controller Implementation  | BC</li>
+  <li>Description: Controller/CPU Implementation missbehaviour can disclose sensitive data</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Entropy downgrade   (<a href="https://emb3d.mitre.org/threats/TID-411.html" target="_blank">MITRE EM3ED TID-411</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_bt/knob.html">Key Negotiation of Bluetooth (KNOB) on BC</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/bias_sc.html">Secure Connection Attack</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/blur.html">Bluetooth Cross-Transport Key Derivation (BLUR)</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Key brute force   (<a href="https://emb3d.mitre.org/threats/TID-317.html" target="_blank">MITRE EM3ED TID-317</a>)</p>
+
+        <ul>
+          <li><a href="ad_bt/blacktooth.html">Profile switch</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Authentication challenge reflection   (<a href="https://emb3d.mitre.org/threats/TID-221.html" target="_blank">MITRE EM3ED TID-221</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_bt/bluemirror_bc_1.html">PIN pairing impersonation attack</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/bluemirror_bc_2.html">Passkey entry impersonation attack</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>No IO downgrade   (<a href="https://emb3d.mitre.org/threats/TID-411.html" target="_blank">MITRE EM3ED TID-411</a>)</p>
+
+        <ul>
+          <li><a href="ad_bt/nino_bc.html">MitM on Secure Simple Pairing</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>RCE   (<a href="https://emb3d.mitre.org/threats/TID-310.html" target="_blank">MITRE EM3ED TID-310</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_bt/blueborne_bc_3.html">Remote code execution</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/blueborne_bc_5.html">Heap overflow</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/braktooth_bc_3.html">Feature Pages Execution</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/toothpicker.html">SMP reception handler out-of-bounds read</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>DoS   (<a href="https://emb3d.mitre.org/threats/TID-404.html" target="_blank">MITRE EM3ED TID-404</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_bt/bluefrag_bc.html">Out of bounds write in L2CAP reassembly</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/braktooth_bc_1.html">Messages Flooding</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/braktooth_bc_2.html">Truncated SCO Link Request</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/braktooth_bc_4.html">Duplicated IOCAP</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/braktooth_bc_5.html">LMP Overflow</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/braktooth_bc_8.html">Accept Truncated LMP</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/braktooth_bc_9.html">Invalid Setup Complete</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/braktooth_bc_11.html">Same Host Connection</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/braktooth_bc_13.html">Invalid Max Slot Type or Length</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/braktooth_bc_15.html">Invalid Timing Accuracy</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/braktooth_bc_16.html">Paging Scan Deadlock</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Invalid ECC point   (<a href="https://emb3d.mitre.org/threats/TID-318.html" target="_blank">MITRE EM3ED TID-318</a>)</p>
+
+        <ul>
+          <li><a href="ad_bt/invcurve.html">Invalid Curve Attack</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>RID   (<a href="https://emb3d.mitre.org/threats/TID-327.html" target="_blank">MITRE EM3ED TID-327</a>)</p>
+
+        <ul>
+          <li><a href="ad_bt/blueborne_bc_2.html">Information disclosure due to out-of-bounds heap read</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Information Leak   (<a href="https://emb3d.mitre.org/threats/TID-310.html" target="_blank">MITRE EM3ED TID-310</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_bt/blueborne_bc_4.html">Information disclosure</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/badchoice_bc.html">Stack-Based information leak</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Buffer overflowOut of Bounds   (<a href="https://emb3d.mitre.org/threats/TID-327.html" target="_blank">MITRE EM3ED TID-327</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_bt/frankenstein_bc_1.html">Inquiry Response Heap Overflow</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/frankenstein_bc_2.html">Heap overflow in ACL mode</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/badvibes_bc.html">Heap-Based buffer overflow</a></p>
+          </li>
+          <li>
+            <p><a href="ad_bt/badkarma_bc.html">Heap-Based type confusion</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Power Consumption Analysis Side Channel (<a href="https://emb3d.mitre.org/threats/TID-101.html" target="_blank">MITRE EM3ED TID-101) </a></p>
+      </li>
+      <li>
+        <p>Electromagnetic Analysis Side Channel (<a href="https://emb3d.mitre.org/threats/TID-102.html" target="_blank">MITRE EM3ED TID-102) </a></p>
+      </li>
+      <li>
+        <p>Microarchitectural Side Channels (<a href="https://emb3d.mitre.org/threats/TID-103.html" target="_blank">MITRE EM3ED TID-103) </a></p>
+      </li>
+      <li>
+        <p>Hardware Fault Injection – Control Flow Modification (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-memorystorage-external-to-cpu-mitre-em3ed-pid-12">EM3ED-only: Device includes Memory/Storage (external to CPU) (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-12" target="_blank">MITRE EM3ED PID-12</a>)</h2>
+
+<ul>
+  <li>Attack Vectors and Threats:</li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-buses-for-external-memorystorage-mitre-em3ed-pid-121">EM3ED-only: Device includes buses for external memory/storage (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-121" target="_blank">MITRE EM3ED PID-121</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>Data Bus Interception (<a href="https://emb3d.mitre.org/threats/TID-106.html" target="_blank">MITRE EM3ED TID-106) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-discrete-chipsdevices-that-have-access-to-the-same-physical-memory-mitre-em3ed-pid-122">EM3ED-only: Device includes discrete chips/devices that have access to the same physical memory (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-122" target="_blank">MITRE EM3ED PID-122</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>Unauthorized Direct Memory Access (DMA) (<a href="https://emb3d.mitre.org/threats/TID-107.html" target="_blank">MITRE EM3ED TID-107) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-rom-vram-or-removable-storage-mitre-em3ed-pid-123">EM3ED-only: Device includes ROM, VRAM, or removable Storage (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-123" target="_blank">MITRE EM3ED PID-123</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>ROM/NVRAM Data Extraction or Modification (<a href="https://emb3d.mitre.org/threats/TID-108.html" target="_blank">MITRE EM3ED TID-108) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-random-access-memory-ram-chips-mitre-em3ed-pid-124">EM3ED-only: Device includes Random Access Memory (RAM) chips (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-124" target="_blank">MITRE EM3ED PID-124</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>RAM Chip Contents Readout (<a href="https://emb3d.mitre.org/threats/TID-109.html" target="_blank">MITRE EM3ED TID-109) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-ddr-dram-mitre-em3ed-pid-1241">EM3ED-only: Device includes DDR DRAM (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-1241" target="_blank">MITRE EM3ED PID-1241</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>Hardware Fault Injection – Data Manipulation (<a href="https://emb3d.mitre.org/threats/TID-110.html" target="_blank">MITRE EM3ED TID-110) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-peripheral-chips-and-integrated-data-buses-mitre-em3ed-pid-13">EM3ED-only: Device includes peripheral chips and integrated data buses (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-13" target="_blank">MITRE EM3ED PID-13</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Unverified Peripheral Firmware Loaded (<a href="https://emb3d.mitre.org/threats/TID-113.html" target="_blank">MITRE EM3ED TID-113) </a></p>
+      </li>
+      <li>
+        <p>Peripheral Data Bus Interception (<a href="https://emb3d.mitre.org/threats/TID-114.html" target="_blank">MITRE EM3ED TID-114) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-external-peripheral-interconnects-eg-usb-serial-mitre-em3ed-pid-14">EM3ED-only: Device includes external peripheral interconnects (e.g., USB, Serial) (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-14" target="_blank">MITRE EM3ED PID-14</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Untrusted External Storage (<a href="https://emb3d.mitre.org/threats/TID-111.html" target="_blank">MITRE EM3ED TID-111) </a></p>
+      </li>
+      <li>
+        <p>Weak Peripheral Port Electrical Damage Protection (<a href="https://emb3d.mitre.org/threats/TID-118.html" target="_blank">MITRE EM3ED TID-118) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-a-hardware-access-port-eg-uart-jtag-mitre-em3ed-pid-15">EM3ED-only: Device includes a hardware access port (e.g., UART, JTAG) (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-15" target="_blank">MITRE EM3ED PID-15</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Firmware/Data Extraction via Hardware Interface (<a href="https://emb3d.mitre.org/threats/TID-115.html" target="_blank">MITRE EM3ED TID-115) </a></p>
+      </li>
+      <li>
+        <p>Latent Privileged Access Port (<a href="https://emb3d.mitre.org/threats/TID-116.html" target="_blank">MITRE EM3ED TID-116) </a></p>
+      </li>
+      <li>
+        <p>Latent Hardware Debug Port Allows Memory/Code Manipulation (<a href="https://emb3d.mitre.org/threats/TID-119.html" target="_blank">MITRE EM3ED TID-119) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-a-bootloader-mitre-em3ed-pid-21">EM3ED-only: Device includes a bootloader (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-21" target="_blank">MITRE EM3ED PID-21</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>Inadequate Bootloader Protection and Verification (<a href="https://emb3d.mitre.org/threats/TID-201.html" target="_blank">MITRE EM3ED TID-201) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-a-debugging-capabilities-mitre-em3ed-pid-22">EM3ED-only: Device includes a debugging capabilities (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-22" target="_blank">MITRE EM3ED PID-22</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>Excessive Access via Software Diagnostic Features (<a href="https://emb3d.mitre.org/threats/TID-224.html" target="_blank">MITRE EM3ED TID-224) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-oskernel-mitre-em3ed-pid-23">Device includes OS/kernel (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-23">MITRE EM3ED PID-23</a>)</h2>
+
+<h3 id="kernel-or-operating-system">Kernel or Operating System</h3>
+<ul>
+  <li>Keys: Kernel or Operating System  | OS | Linux | Kernel</li>
+  <li>Description: Device includes OS/kernel</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>RCE   (<a href="https://emb3d.mitre.org/threats/TID-310.html" target="_blank">MITRE EM3ED TID-310</a>)</p>
+
+        <ul>
+          <li><a href="ad_bt/blueborne_bc_1.html">Stack overflow in L2CAP</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Exploitable System Network Stack Component (<a href="https://emb3d.mitre.org/threats/TID-202.html" target="_blank">MITRE EM3ED TID-202) </a></p>
+      </li>
+      <li>
+        <p>Operating System Susceptible to Rootkit (<a href="https://emb3d.mitre.org/threats/TID-218.html" target="_blank">MITRE EM3ED TID-218) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-lacks-firmwaresoftware-update-support-mitre-em3ed-pid-26">EM3ED-only: Device lacks firmware/software update support (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-26" target="_blank">MITRE EM3ED PID-26</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>Device Vulnerabilities Unpatchable (<a href="https://emb3d.mitre.org/threats/TID-210.html" target="_blank">MITRE EM3ED TID-210) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-support-for-firmwaresoftware-updates-mitre-em3ed-pid-27">EM3ED-only: Device includes support for firmware/software updates (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-27" target="_blank">MITRE EM3ED PID-27</a>)</h2>
+
+<ul>
+  <li>Attack Vectors and Threats:</li>
+</ul>
+
+<h2 id="em3ed-only-device-has-firmware-or-software-that-is-not-cryptographically-checked-for-integrity-validation-mitre-em3ed-pid-271">EM3ED-only: Device has firmware or software that is not cryptographically checked for integrity validation (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-271" target="_blank">MITRE EM3ED PID-271</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>Device Allows Unauthenticated Firmware Installation (<a href="https://emb3d.mitre.org/threats/TID-211.html" target="_blank">MITRE EM3ED TID-211) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-cryptographic-firmwaresoftware-integrity-protection-mechanisms-mitre-em3ed-pid-272">EM3ED-only: Device includes cryptographic firmware/software integrity protection mechanisms (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-272" target="_blank">MITRE EM3ED PID-272</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Secrets Extracted from Device Root of Trust (<a href="https://emb3d.mitre.org/threats/TID-214.html" target="_blank">MITRE EM3ED TID-214) </a></p>
+      </li>
+      <li>
+        <p>Cryptographic Timing Side-Channel (<a href="https://emb3d.mitre.org/threats/TID-330.html" target="_blank">MITRE EM3ED TID-330) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-a-shared-key-for-firmware-integrity-validation-mitre-em3ed-pid-2721">EM3ED-only: Device includes a shared key for firmware integrity validation (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-2721" target="_blank">MITRE EM3ED PID-2721</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>FW/SW Update Integrity Shared Secrets Extraction (<a href="https://emb3d.mitre.org/threats/TID-212.html" target="_blank">MITRE EM3ED TID-212) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-digitally-signed-firmware-with-private-key-mitre-em3ed-pid-2722">EM3ED-only: Device includes digitally signed firmware (with private key) (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-2722" target="_blank">MITRE EM3ED PID-2722</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>Faulty FW/SW Update Integrity Verification (<a href="https://emb3d.mitre.org/threats/TID-213.html" target="_blank">MITRE EM3ED TID-213) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-has-unencrypted-firmware-updates-mitre-em3ed-pid-273">EM3ED-only: Device has unencrypted firmware updates (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-273" target="_blank">MITRE EM3ED PID-273</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>Unencrypted SW/FW Updates (<a href="https://emb3d.mitre.org/threats/TID-215.html" target="_blank">MITRE EM3ED TID-215) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-user-firmwaresoftware-version-selection-during-updates-mitre-em3ed-pid-274">EM3ED-only: Device includes user firmware/software version selection during updates (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-274" target="_blank">MITRE EM3ED PID-274</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>Firmware Update Rollbacks Allowed (<a href="https://emb3d.mitre.org/threats/TID-216.html" target="_blank">MITRE EM3ED TID-216) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-includes-remotely-initiated-firmwaresoftware-updates-mitre-em3ed-pid-275">EM3ED-only: Device includes remotely-initiated firmware/software updates (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-275" target="_blank">MITRE EM3ED PID-275</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>Remotely Initiated Updates Can Cause DoS (<a href="https://emb3d.mitre.org/threats/TID-217.html" target="_blank">MITRE EM3ED TID-217) </a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-device-stores-logs-of-system-events-and-information-mitre-em3ed-pid-28">EM3ED-only: Device stores logs of system events and information (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-28" target="_blank">MITRE EM3ED PID-28</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Logs can be manipulated on the device (<a href="https://emb3d.mitre.org/threats/TID-225.html" target="_blank">MITRE EM3ED TID-225) </a></p>
+      </li>
+      <li>
+        <p>Device leaks security information in logs (<a href="https://emb3d.mitre.org/threats/TID-226.html" target="_blank">MITRE EM3ED TID-226) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="em3ed-only-application-level-software-is-present-and-running-on-the-device-mitre-em3ed-pid-31">EM3ED-only: Application-level software is present and running on the device (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-31" target="_blank">MITRE EM3ED PID-31</a>)</h2>
+
+<ul>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>Applications Binaries Modified (<a href="https://emb3d.mitre.org/threats/TID-301.html" target="_blank">MITRE EM3ED TID-301) </a></li>
+    </ul>
+  </li>
+</ul>
+
+
+      </div>
+    </main>
+  </body>
+</html>

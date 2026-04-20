@@ -1,0 +1,673 @@
+---
+# NOTE: `make bt-y2j` to generate bt.json
+
+# PROTOCOL-LEVEL (BT, BLE, BM) {{{
+knob:
+  a: Key Negotiation of Bluetooth (KNOB) on BC
+  d:
+    Mutually authenticated entropy negotiation:
+      [Integrity protect entropy negotiation with the pairing key]
+  year: 2019
+  surf: [BC, Session, SMP, Pairing, Entropy negotiation]
+  vect: [Entropy downgrade, Key brute force]
+  model: [Proximity, MitM]
+  tag: [Protocol, LMP, SC, LSC, ID, Confidentiality]
+  cve: ["9506"]
+  cwe: ["310", "327"]
+  capec: ["668"]
+  risk: 8.1
+
+bias_sc:
+  a: Secure Connection Attack
+  d:
+    Mutually authenticated session: [Pairing key authentication]
+  year: 2020
+  surf: [BC, Session, Authentication]
+  vect:
+    [
+      SC downgrade,
+      Authentication skip,
+      Authentication role switch,
+      Authentication challenge reflection,
+      Entropy downgrade,
+      Key brute force,
+    ]
+  model: [Proximity, Impersonation, Downgrade]
+  tag: [Protocol, LMP, LSC]
+  cve: ["10135"]
+  cwe: ["290", "757"]
+  capec: ["667"]
+  risk: 5.4
+
+blur:
+  a: Bluetooth Cross-Transport Key Derivation (BLUR)
+  d:
+    Prevent cross-transport key tampering:
+      [Disable key overwrite with weaker keys]
+    Enforce strong association mechanisms:
+      [Track associations for paired devices and abort on downgrade request]
+    Prevent role switching: [Track asymmetries in roles between BT and BLE]
+  year: 2020
+  surf: [BC, BLE, SMP, LMP, Pairing, CTKD]
+  vect: [SC downgrade, Cross-transport pairing, No IO downgrade]
+  model: [Proximity, Impersonation, MitM, Unintended session]
+  tag: [Protocol, LESC, SSP, SC, dual-mode]
+  cve: ["15802", "20361"]
+  cwe: ["287"]
+  risk: 9.8
+
+blacktooth:
+  a: Profile switch
+  d:
+    Mutually authenticated session establishment:
+      [Mutually authenticated session establishment]
+  year: 2022
+  surf: [BC, Session]
+  vect:
+    [
+      Key brute force,
+      Entropy downgrade,
+      Authentication role switch,
+      RCE,
+    ]
+  model: [Proximity, Zero-Click, Impersonation, MitM, Unintended session]
+  tag: [Protocol]
+
+sco_ble:
+  a: Downgrade attacks on BLE SCO
+  d:
+    Enforce secure pairing:
+      ["Specify secure a association method, enforce it and handle errors"]
+  year: 2020
+  surf: [BLE, SMP, Pairing]
+  vect: [Encryption downgrade, DoS]
+  model: [Proximity, MitM, Impersonation]
+  tag: [Impl, SCO]
+
+bluemirror_bc_1:
+  a: PIN pairing impersonation attack
+  d:
+    Do not allow legacy pairing:
+      [
+        Enable Secure Simple Pairing and disable pin-code pairing,
+        Enforce Secure Connections Only Mode,
+      ]
+    Restrict accepted public keys:
+      [
+        Do not accept/initiate connections with remote devices claiming the same BT address,
+        Do not accept/initiate connections with remote devices with a null key,
+      ]
+  year: 2020
+  surf: [BC, Legacy pairing, Key agreement]
+  vect: [Authentication challenge reflection]
+  model: [Proximity, Impersonation]
+  tag: [Protocol, LMP, SSP, LSC]
+  cve: ["26555"]
+  cwe: ["863"]
+  risk: 5.4
+
+bluemirror_bc_2:
+  a: Passkey entry impersonation attack
+  d:
+    Restrict accepted public keys:
+      [
+        Devices should not accept their own public key from a peer during a pairing session. The pairing procedure should be terminated with a failure status if this occurs.,
+      ]
+  year: 2020
+  surf: [BC, Pairing, Association]
+  vect: [Authentication challenge reflection]
+  model: [Proximity, Zero-Click, Impersonation, MitM]
+  tag: [Protocol, LMP, SSP, SC]
+  cve: ["26558"]
+  cwe: ["287"]
+  risk: 4.2
+
+bluemirror_ble:
+  a: Reflection attack on passkey entry
+  d:
+    Restrict accepted public keys:
+      [
+        Abort pairing if the remote public key is identical to the device's local one.
+      ]
+  year: 2020
+  surf: [BLE, SMP, Pairing, Association]
+  vect: [Authentication challenge reflection]
+  model: [Proximity, Impersonation, MitM]
+  tag: [Protocol, LESC]
+  cve: ["26558"]
+  cwe: ["287"]
+  risk: 4.2
+
+bluemirror_bm_1:
+  a: MitM and auth reflection on BMP (M-A1)
+  d:
+    Restrict authentication procedure:
+      [
+        Do not accept provisioning random and provisioning confirmation numbers from a remote peer that are the same as those selected by the local device.
+      ]
+  year: 2020
+  surf: [BM, Provisioning, Authentication]
+  vect: [Authentication challenge reflection]
+  model: [Proximity, MitM]
+  tag: [Protocol, BMP]
+  cve: ["26560"]
+  cwe: ["863"]
+  risk: 8.1
+
+bluemirror_bm_2:
+  a: Predictable or brute forceable AuthValue in BM Provisioning (M-A2)
+  d:
+    Avoid easily guessable AuthValues:
+      [
+        Use AuthValues with maximum entropy (128-bits) and randomly select a new AuthValue using a secure rng with each new provisioning attempt,
+      ]
+  year: 2020
+  surf: [BM, Provisioning, Authentication]
+  vect: [Brute force]
+  model: [Proximity, Spoofing, MitM]
+  tag: [Protocol, BMP]
+  cve: ["26557"]
+  cwe: ["287"]
+  risk: 7.5
+
+
+crackle_ble:
+  a: BLE Key Derivation (CRACKLE)
+  d:
+    Do not use custom Key Exchange Protocol: [Use standard DH]
+  year: 2013
+  surf: [BLE, SMP, Legacy pairing]
+  vect: [Key brute force]
+  model: [Proximity, Eavesdropper]
+  tag: [Protocol]
+
+invcurve:
+  a: Invalid Curve Attack
+  d:
+    Public key validation: [Verify public key satisfies the curve equation]
+  year: 2018
+  surf: [BC, BLE, SMP, Pairing, Key agreement]
+  vect: [Invalid ECC point]
+  model: [Proximity, MitM]
+  tag: [Protocol, LMP, SSP, SC, LESC, Probabilistic]
+  cve: ["5383"]
+  cwe: ["347", "325"]
+  risk: 6.8
+
+blesa_ble:
+  a: BLE reconnection spoofing
+  d:
+    Securing reconnection: [Abort on reconnection authentication failure]
+  year: 2020
+  surf: [BLE, Session]
+  vect: [SC downgrade, Encryption downgrade]
+  model: [Proximity, Eavesdropper, Spoofing, MitM]
+  tag: [Protocol, Impl, BLELL]
+  cve: ["9770"]
+  cwe: ["326"]
+  risk: 6.5
+
+nino_bc:
+  a: MitM on Secure Simple Pairing
+  d:
+    Association confirmation:
+      [User to verify integrity checksum before association]
+    Out of band pairing: [Use NFC as OOB channel]
+  year: 2010
+  surf: [BC, Pairing, Feature Exchange]
+  vect: [No IO downgrade]
+  model: [Proximity, MitM]
+  tag: [Protocol, LMP, SSP]
+
+nino_ble:
+  a: MitM on BLE SSP
+  d:
+    Out of band pairing: [Use NFC as OOB channel]
+  surf: [BLE, SMP, Pairing, Association]
+  vect: [No IO downgrade]
+  model: [Proximity, MitM]
+  tag: [Protocol, LESC]
+
+
+# }}}
+
+# IMPL-LEVEL {{{
+
+blueborne_bc_1:
+  a: Stack overflow in L2CAP
+  d:
+    Check L2CAP config option output buffer length:
+      [Validate output buffer length for L2CAP config requests and responses]
+  year: 2017
+  surf: [Linux, Kernel, BC, BlueZ]
+  vect: [RCE]
+  model: [Proximity, Zero-Click]
+  tag: [L2CAP]
+  cve: ["1000251"]
+  cwe: ["787"]
+  risk: 8.0
+
+blueborne_bc_2:
+  a: Information disclosure due to out-of-bounds heap read
+  d:
+    Harden heap: [Validate state before reading from heap]
+  year: 2017
+  surf: [BC, Linux, Kernel, BlueZ]
+  vect: [RID]
+  model: [Proximity, Zero-Click]
+  tag: [SDP]
+  cve: ["1000250"]
+  cwe: ["200"]
+  risk: 6.5
+
+blueborne_bc_3:
+  a: Remote code execution
+  d:
+    Check size before allocating buffers:
+      [Allocate buffers of the correct size for BT_HDR]
+    Chech size before copying data: [Check PAN buffer size before copying data]
+  year: 2017
+  surf: [BC, Android, Flouride]
+  vect: [RCE]
+  model: [Proximity, Zero-Click]
+  tag: [BNEP]
+  cve: ["0781", "0782"]
+  cwe: ["119", "120"]
+  vref: ["A-63146105", "A-63146237"]
+  risk: 8.2
+
+blueborne_bc_4:
+  a: Information disclosure
+  d:
+    Disable reverse tethering when connection originated by the remote:
+      [
+        Check for valid interactions between the PAN profile roles,
+        Disable connections to the local PANU if the remote is not PANU,
+      ]
+  year: 2017
+  surf: [BC, Android, Flouride]
+  vect: [Information leak]
+  model: [Proximity, Zero-Click]
+  tag: [PAN]
+  cve: ["0783"]
+  cwe: ["200"]
+  vref: ["A-63145701"]
+  risk: 8.2
+
+blueborne_bc_5:
+  a: Heap overflow
+  d:
+    Prevent heap overflow: [Enable stack protection mechanisms, Perform Fuzzing, Use safe functions]
+  year: 2017
+  surf: [BC, iOS, LEAP]
+  vect: [RCE]
+  model: [Proximity, Zero-Click]
+  tag: [Impl]
+  cve: ["14315"]
+  cwe: ["119"]
+  risk: 7.5
+
+bleedingbit_ble_1:
+  a: Malformed packet buffer overflow in BLE beacons parsing
+  d:
+    Prevent buffer overflow: [Add buffer bounds checks]
+  year: 2018
+  surf: [BLE, BLE-Stack]
+  vect: [Heap overflow, DoS, RCE]
+  model: [Proximity, Zero-Click]
+  tag: [Impl]
+  cve: ["16986"]
+  cwe: ["119"]
+  risk: 9.8
+
+frankenstein_bc_1:
+  a: Inquiry Response Heap Overflow
+  d:
+    Implement constant time checks for heap corruption:
+      [Validate blocks start and size to prevent overlapping]
+  year: 2019
+  surf: [BC, Scanning]
+  vect: [Buffer overflow, RCE]
+  model: [Proximity, Zero-Click]
+  tag: [Impl, Fuzz]
+  cve: ["11516"]
+  cwe: ["787"]
+  vref: ["A-132966035"]
+
+frankenstein_ble_1:
+  a: Heap overflow in BLE PDUs parsing
+  d:
+    Limit PDU packet size: [Validate PDU packet size at real-time]
+  year: 2019
+  surf: [BLE]
+  vect: [Heap overflow, DoS, RCE]
+  model: [Proximity, Zero-Click]
+  tag: [Impl, Fuzz]
+  cve: ["13916"]
+  cwe: ["787"]
+
+frankenstein_bc_2:
+  a: Heap overflow in ACL mode
+  d:
+    Check size before copy operations:
+      [Armonize BLOC buffer size with the actual size used elsewhere]
+  year: 2019
+  surf: [BC]
+  vect: [Heap overflow, DoS]
+  model: [Proximity, Zero-Click]
+  tag: [Impl, Fuzz, ACL, SCO]
+  cve: ["18614"]
+  cwe: ["787"]
+  risk: 7.8
+
+bluefrag_bc:
+  a: Out of bounds write in L2CAP reassembly
+  d:
+    Correct size computation before write operations:
+      [Correct the continuous packet length in L2CAP reassembly logic]
+  year: 2020
+  surf: [BC, Android, Flouride]
+  vect: [DoS, RCE]
+  model: [Proximity, Zero-Click]
+  tag: [Impl, Fuzz, L2CAP]
+  cve: ["0022"]
+  cwe: ["787"]
+  vref: ["A-143894715"]
+  risk: 8.2
+
+sweyntooth_ble_1:
+  a: Link Layer Length Overflow
+  d:
+    Input validation: [Validate input length before copying buffer]
+  year: 2019
+  surf: [BLE, Session]
+  vect: [Buffer overflow, DoS]
+  model: [Proximity, Zero-Click]
+  tag: [Impl, Fuzz]
+  cve: ["16336", "17519"]
+  cwe: ["120"]
+  risk: 7.4
+
+sweyntooth_ble_2:
+  a: Link Layer LLID Deadlock
+  d:
+    Restrict Link Layer payload length: [Validate Link Layer payload length at runtime]
+  year: 2019
+  surf: [BLE, Session]
+  vect: [DoS]
+  model: [Proximity, Zero-Click]
+  tag: [Impl, Fuzz]
+  cve: ["17060", "17061"]
+  cwe: ["120"]
+  risk: 7.4
+
+
+sweyntooth_ble_3:
+  a: BLE Crafted packet buffer overflow
+  d:
+    Avoid buffer overflow: [Check size of response packet]
+  year: 2019
+  surf: [BLE, SMP, Pairing]
+  vect: [Buffer overflow, DoS]
+  model: [Proximity, Zero-Click]
+  tag: [Impl, Fuzz]
+  cve: ["17518"]
+  cwe: ["120"]
+  risk: 6.5
+
+sweyntooth_ble_4:
+  a: Key Size Overflow
+  d:
+    Validate key size on pairing request: [Validate key size on pairing request]
+  year: 2019
+  surf: [BLE, SMP, Pairing]
+  vect: [DoS]
+  model: [Proximity, Zero-Click]
+  tag: [Impl, Fuzz]
+  cve: ["19196"]
+  cwe: ["120"]
+  risk: 6.5
+
+sweyntooth_ble_5:
+  a: Zero LTK Installation
+  d:
+    Refuse zeroed LTKs: [Check for zeroed LTKs before confirming the pairing]
+  year: 2019
+  surf: [BLE, SMP, Pairing]
+  vect: [Encryption downgrade]
+  model: [Proximity, Zero-Click]
+  tag: [Impl, Fuzz, SC]
+  cve: ["19194"]
+  risk: 8.8
+
+braktooth_bc_1:
+  a: Messages Flooding
+  d:
+    Handle messages flooding: [Fuzz LMP messages receiving handlers to test edge cases, Handle LMP messages flooding, Implement a rate limiter for LMP_host_connection_req messages]
+  year: 2021
+  surf: [BC, Pairing]
+  vect: [DoS]
+  model: [Proximity]
+  tag: [Impl, Fuzz, LMP]
+  cve: ["28135", "28155", "31717", "31785", "31610", "34149", "34146", "34143", "20023"]
+  risk: 6.5
+
+braktooth_bc_2:
+  a: Truncated SCO Link Request
+  d:
+    Handle truncated packets: [Fuzz the LMP receiving handlers to test edge cases]
+  year: 2021
+  surf: [BC, Pairing]
+  vect: [DoS]
+  model: [Proximity]
+  tag: [Impl, Fuzz, LMP]
+  cve: ["34144"]
+  risk: 6.5
+
+braktooth_bc_3:
+  a: Feature Pages Execution
+  d:
+    Bounds check: [Check for out-of-bounds upon receiving LMP_feature_response_ext packet]
+  year: 2021
+  surf: [BC, Pairing, Feature Exchange]
+  vect: [RCE, DoS]
+  model: [Proximity]
+  tag: [Impl, Fuzz, LMP]
+  cve: ["28139"]
+  risk: 8.8
+
+braktooth_bc_4:
+  a: Duplicated IOCAP
+  d:
+    Handle multiple packets receipt: [Implement timers to check for duplicate packets]
+  year: 2021
+  surf: [BC, Pairing]
+  vect: [DoS]
+  model: [Proximity]
+  tag: [Impl, Fuzz, LMP]
+  cve: ["28136"]
+  risk: 4.9
+
+braktooth_bc_5:
+  a: LMP Overflow
+  d:
+    Properly handle packets bigger than expected: [Properly handle LMP packets greater than 17 bytes]
+  year: 2021
+  surf: [BC, Pairing]
+  vect: [DoS]
+  model: [Proximity]
+  tag: [Impl, Fuzz, Baseband]
+  cve: ["31609", "31612", "35093", "34150"]
+  risk: 6.5
+
+braktooth_bc_8:
+  a: Accept Truncated LMP
+  d:
+    Properly handle truncated LMP packets: [Verify and fuzz LMP packets handling]
+  year: 2021
+  surf: [BC, Pairing]
+  vect: [DoS]
+  model: [Proximity]
+  tag: [Impl, Fuzz, LMP]
+  cve: ["31613"]
+  risk: 6.5
+
+braktooth_bc_9:
+  a: Invalid Setup Complete
+  d:
+    Handle out-of-order packets: [Properly handle out-of-order LMP Setup packets and disallow malformed LMP packets]
+  year: 2021
+  surf: [BC, Pairing]
+  vect: [DoS]
+  model: [Proximity]
+  tag: [Impl, Fuzz, LMP]
+  cve: ["31611"]
+  risk: 5.7
+
+braktooth_bc_11:
+  a: Same Host Connection
+  d:
+    Disallow connection from duplicate address: [Check new connections against already connected devices for duplicate addresses]
+  year: 2021
+  surf: [BC, Pairing]
+  vect: [DoS]
+  model: [Proximity]
+  tag: [Impl, Fuzz, LMP]
+  cve: ["31786", "20022"]
+  risk: 6.5
+
+braktooth_bc_13:
+  a: Invalid Max Slot Type or Length
+  d:
+    Validate packets fields and lengths: [LMP_max_slot packet should be validated]
+  year: 2021
+  surf: [BC, Pairing]
+  vect: [DoS]
+  model: [Proximity]
+  tag: [Impl, Fuzz, Baseband]
+  cve: ["34145", "34148"]
+  risk: 6.5
+
+braktooth_bc_15:
+  a: Invalid Timing Accuracy
+  d:
+    Properly free resources: [Free memory after receiving invalid LMP_timing_accuracy_response and before disconnecting]
+  year: 2021
+  surf: [BC, Pairing]
+  vect: [DoS]
+  model: [Proximity]
+  tag: [Impl, Fuzz, LMP, Baseband]
+  cve: ["34147", "30348", "33139"]
+  risk: 6.5
+
+braktooth_bc_16:
+  a: Paging Scan Deadlock
+  d:
+    Check for received packets size: [Check size of LMP_timing_accuracy_request packet]
+  year: 2021
+  surf: [BC, Pairing]
+  vect: [DoS]
+  model: [Proximity]
+  tag: [Impl, Fuzz, LMP, Baseband]
+  cve: ["34147", "30348", "33139"]
+  risk: 6.5
+
+toothpicker:
+  a: SMP reception handler out-of-bounds read
+  d:
+    Sanitize received protocol values: [Check received protocol opcode value]
+  year: 2020
+  surf: [BC, iOS, MagicPairing]
+  vect: [RCE, DoS]
+  model: [Proximity, Zero-Click]
+  tag: [Impl, Fuzz, L2CAP]
+  cve: ["9839", "9931"]
+  cwe: ["125"]
+  risk: 7.5
+
+badvibes_bc:
+  a: Heap-Based buffer overflow
+  d:
+    Add buffer restrictions: []
+  year: 2020
+  surf: [BC, Linux, Kernel, BlueZ, HCI]
+  vect: [Buffer overflow, Kernel panic, Pointer corruption]
+  model: [Proximity, Zero-Click]
+  tag: [Impl]
+  cve: ["24490"]
+  cwe: ["119"]
+  risk: 6.5
+
+badkarma_bc:
+  a: Heap-Based type confusion
+  d:
+    Add type validation: []
+  year: 2020
+  surf: [BC, Linux, Kernel, BlueZ, HCI]
+  vect: [Pointer dereference, Kernel panic]
+  model: [Proximity, Zero-Click]
+  tag: [Impl]
+  cve: ["12351"]
+  cwe: ["20"]
+  risk: 8.8
+
+badchoice_bc:
+  a: Stack-Based information leak
+  d:
+    Clear unused variable to prevent information leak:
+      [Enable CONFIG_INIT_STACK_ALL_PATTERN=y during kernel compilation]
+  year: 2020
+  surf: [BC, Linux, Kernel, A2MP]
+  vect: [Information leak]
+  model: [Proximity, Zero-Click]
+  tag: [Impl]
+  cve: ["12352"]
+  cwe: ["909"]
+  risk: 6.5
+# }}}
+
+pairing_method_confusion_ble:
+  a: Method confusion attack
+  d:
+    Enforce specific authentication method: [Use OOB authentication]
+    User interface fix: [Display authentication method warning to the user]
+    Authentication method validation: [Embed information about the authentication method in the authentication data itself to make them distinguishable]
+  year: 2020
+  surf: [BLE, SMP, Pairing]
+  vect: [Authentication skip]
+  model: [Proximity, MitM, Unintended session]
+  tag: [Protocol]
+  cve: ["10134"]
+  cwe: ["351", "436"]
+  risk: 6.3
+
+# INFO: BLE encryption avoids MitM but allows for DoSsing the connection
+injectable:
+  a: PHY packet injection
+  d:
+    Enable BLE encryption: []
+  year: 2021
+  surf: [BLE, SMP, Pairing]
+  vect: [DoS]
+  model: [Proximity, Spoofing, Eavesdropper, MitM, Hijacking]
+  tag: [Protocol]
+  cve: ["31615"]
+  cwe: ["362"]
+  risk: 5.3
+
+gatt_fp_ble:
+  a: GATT Fingerprinting and Tracking
+  d:
+    Restrict access to values of characteristics:
+      [
+        Use GATT permission system to ensure that characteristics are not readable by unauthenticated clients,
+      ]
+    Minimize exposure of GATT profile:
+      [
+        Set access control to show services and characteristics only to authenticated clients,
+      ]
+  year: 2019
+  surf: [BLE, GATT]
+  vect: [Eavesdropping, Tracking, Information leak]
+  model: [Proximity, Eavesdropper, Fingerprinting]
+  tag: [Protocol, Privacy]

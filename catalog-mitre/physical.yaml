@@ -1,0 +1,590 @@
+---
+# Physical Threats
+
+#
+# This file represents the MITRE EM3ED Hardware Device Threat Cathegory
+#
+
+sca_power_spa:
+  a: Secret-dependent operations lead to secret extraction through measuring power consumption
+  d:
+    Constant-time/flow implementation: []
+  surf: [Cryptographic Algorithm Implementation]
+  vect: [Power Side-Channel Attack, Side-Channel Attack]
+  model: [Physical, Passive]
+  tag: [Implementation Attack, Side-Channel Attack, SPA]
+
+sca_power_spa_exponentiation:
+  a: Key-dependent exponentiation leads to single-trace key extraction through measuring power consumption
+  d:
+    Constant-time/flow implementation: [Square and multiply always, Montgomery ladder]
+  surf: [Cryptographic Algorithm Implementation, RSA, RSA Exponentiation, private key]
+  vect: [Power Side-Channel Attack, Side-Channel Attack]
+  model: [Physical, Passive]
+  tag: [Implementation Attack, Side-Channel Attack, Power Side-Channel, SPA]
+
+sca_em_spa_exponentiation:
+  a: Key-dependent exponentiation leads to single-trace key extraction through measuring electromagnetic emanations
+  d:
+    Constant-time/flow implementation: [Square and multiply always, Montgomery ladder]
+    Add security sensors: [EM proximity sensor]
+  surf: [Cryptographic Algorithm Implementation, RSA, RSA Exponentiation, private key]
+  vect: [Electromagnetic Side-Channel Attack, Side-Channel Attack]
+  model: [Physical, Passive]
+  tag: [Implementation Attack, Side-Channel Attack, Electromagnetic Side-Channel, SPA]
+
+sca_power_spa_multiplication:
+  a: Key-dependent multiplication leads to key extraction through measuring power consumption
+  d:
+    Constant-time/flow implementation: [Double and add always, Montgomery ladder]
+  surf: [Cryptographic Algorithm Implementation, ECC, ECC Multiplication, private key]
+  vect: [Power Side-Channel Attack, Side-Channel Attack]
+  model: [Physical, Passive]
+  tag: [Implementation Attack, Side-Channel Attack, Power Side-Channel, SPA]
+
+sca_em_spa_multiplication:
+  a: Key-dependent multiplication leads to key extraction through measuring electromagnetic emanations
+  d:
+    Constant-time/flow implementation: [Double and add always, Montgomery ladder]
+    Add security sensors: [EM proximity sensor]
+  surf: [Cryptographic Algorithm Implementation, ECC, ECC Multiplication, private key]
+  vect: [Electromagnetic Side-Channel Attack, Side-Channel Attack]
+  model: [Physical, Passive]
+  tag: [Implementation Attack, Side-Channel Attack, Electromagnetic Side-Channel, SPA]
+
+sca_power_dpa:
+  a: Correlation between power consumption and key material in an unprotected cryptographic implementation leads to key extraction
+  d:
+    Decouple the power consumption from the key: [Data randomization, Masking, Blinding]
+    Decrease signal-to-noise ratio: [Instruction shuffling, Dummy instructions, Clock jitter, Increase parallel activity]
+  surf: [Cryptographic Algorithm Implementation]
+  vect: [Power Side-Channel Attack, Side-Channel Attack]
+  model: [Physical, Passive]
+  tag: [Implementation Attack, Side-Channel Attack, Power Side-Channel, DPA, CPA]
+
+sca_em_dpa:
+  a: Correlation between electromagnetic emanations and key material in an unprotected cryptographic implementation leads to key extraction
+  d:
+    Decouple the electromagnetic emanations from the key: [Data randomization, Masking, Blinding]
+    Decrease signal-to-noise ratio: [Instruction shuffling, Dummy instructions, Clock jitter, Increase parallel activity]
+  surf: [Cryptographic Algorithm Implementation]
+  vect: [Electromagnetic Side-Channel Attack, Side-Channel Attack]
+  model: [Physical, Passive]
+  tag: [Implementation Attack, Side-Channel Attack, Electromagnetic Side-Channel, DPA, CPA]
+
+sca_power_2ndorder_dpa:
+  a: Second order correlation between power consumption and key material in a first-order protected cryptographic implementation leads to key extraction
+  d:
+    Decouple the power consumption from the key: [Second order masking]
+    Decrease signal-to-noise ratio: [Instruction shuffling, Dummy instructions, Clock jitter, Increase parallel activity]
+  surf: [Cryptographic Algorithm Implementation]
+  vect: [Power Side-Channel Attack, Side-Channel Attack]
+  model: [Physical, Passive]
+  tag: [Implementation Attack, Side-Channel Attack, Power Side-Channel, DPA, CPA]
+
+sca_em_2ndorder_dpa:
+  a: Second order correlation between electromagnetic emanations and key material in a first-order protected cryptographic implementation leads to key extraction
+  d:
+    Decouple the electromagnetic emanations from the key: [Second order masking]
+    Decrease signal-to-noise ratio: [Instruction shuffling, Dummy instructions, Clock jitter, Increase parallel activity]
+  surf: [Cryptographic Algorithm Implementation]
+  vect: [Electromagnetic Side-Channel Attack, Side-Channel Attack]
+  model: [Physical, Passive]
+  tag: [Implementation Attack, Side-Channel Attack, Electromagnetic Side-Channel, DPA, CPA]
+
+sca_power_higherorder_dpa:
+  a: Nth order correlation between power consumption and key material in an (n-1)-order protected cryptographic implementation leads to key extraction
+  d:
+    Decouple the power consumption from the key: [nth-order masking]
+    Decrease signal-to-noise ratio: [Instruction shuffling, Dummy instructions, Clock jitter, Increase parallel activity]
+  surf: [Cryptographic Algorithm Implementation]
+  vect: [Power Side-Channel Attack, Side-Channel Attack]
+  model: [Physical, Passive]
+  tag: [Implementation Attack, Side-Channel Attack, Power Side-Channel, DPA, CPA]
+
+sca_em_higherorder_dpa:
+  a: Nth order correlation between electromagnetic emanations and key material in an (n-1)-order protected cryptographic implementation leads to key extraction
+  d:
+    Decouple the electromagnetic emanations from the key: [nth-order masking]
+    Decrease signal-to-noise ratio: [Instruction shuffling, Dummy instructions, Clock jitter, Increase parallel activity]
+  surf: [Cryptographic Algorithm Implementation]
+  vect: [Electromagnetic Side-Channel Attack, Side-Channel Attack]
+  model: [Physical, Passive]
+  tag: [Implementation Attack, Side-Channel Attack, Electromagnetic Side-Channel, DPA, CPA]
+
+sca_alignment:
+  a: Misaligned traces can be aligned using alignment techniques
+  d:
+    Randomize waveform shape: [Current scrambling]
+  surf: [Cryptographic Algorithm Implementation]
+  vect: [Power Side-Channel Attack, Side-Channel Attack]
+  model: [Physical, Passive]
+  tag: [Implementation Attack, Side-Channel Attack]
+
+# Physical fault Attacks
+fi_voltage_instructionskip:
+  a: Voltage glitching leads to instruction skip
+  d:
+    Harden computations: [Information redundancy, Parallel computations]
+    Add security sensors: [Voltage sensor]
+    Hide critical operations: [Instruction shuffling, Dummy instructions, Clock jitter]
+  surf: [Controller Implementation]
+  vect: [Fault Attack, Voltage Glitching, Laser]
+  model: [Physical, Active]
+  tag: [Implementation Attack]
+
+fi_clock_instructionskip:
+  a: Clock glitching leads to instruction skip
+  d:
+    Harden computations: [Information redundancy, Parallel computations]
+    Add security sensors: [Clock sensor]
+    Hide critical operations: [Instruction shuffling, Dummy instructions, Clock jitter]
+  surf: [Controller Implementation]
+  vect: [Fault Attack, Clock Glitching, Laser]
+  model: [Physical, Active]
+  tag: [Implementation Attack]
+
+fi_laser_instructionskip:
+  a: Laser fault injection leads to instruction skip
+  d:
+    Harden computations: [Information redundancy, Parallel computations]
+    Add security sensors: [Light sensor, Temperature sensor]
+    Hide sensitive parts of the chip: [Glue logic]
+    Add shielding: [Metal layers]
+    Use modern technology: [Smaller technology, 3D packaging]
+    Hide critical operations: [Instruction shuffling, Dummy instructions, Clock jitter]
+  surf: [Controller Implementation]
+  vect: [Fault Attack, Laser Fault Injection, Laser]
+  model: [Physical, Active]
+  tag: [Implementation Attack]
+
+fi_em_instructionskip:
+  a: Electromagnetic fault injection leads to instruction skip
+  d:
+    Harden computations: [Information redundancy, Parallel computations]
+    Hide sensitive parts of the chip: [Glue logic]
+    Add shielding: [Metal layers]
+    Add security sensors: [EM proximity sensor]
+    Use modern technology: [Smaller technology, 3D packaging]
+    Hide critical operations: [Instruction shuffling, Dummy instructions, Clock jitter]
+  surf: [Controller Implementation]
+  vect: [Fault Attack, Electromagnetic Fault Injection, Laser]
+  model: [Physical, Active]
+  tag: [Implementation Attack]
+
+dfa:
+  a: Differential fault analysis
+  d:
+    Hardware fault tolerance: [Spatial/temporal redundancy, Register ECC, Hardened PC, Hardened CSRs]
+    Software implemented fault tolerance: [Redundant execution, Control flow integrity enforcement]
+    Fault injection testing: [FI simulation, FI emulation, Software FI]
+    Security alerts: [Major alert, Minor alert]
+  surf: [Microprocessor, Cryptographic Operation]
+  vect: [Fault Injection, Bus tampering]
+  model: [Physical Access, Active]
+  tag: [Implementation Attack]
+
+fi_voltage_dfa:
+  a: Voltage Glitching causes fault leading to key extraction using differential fault analysis
+  d:
+    Harden computations: [Ineffective computations]
+    Add security sensors: [Voltage sensor]
+    Hide critical operations: [Instruction shuffling, Dummy instructions, Clock jitter]
+  surf: [Cryptographic Algorithm Implementation]
+  vect: [Fault Attack, Voltage Glitching, DFA]
+  model: [Physical, Active]
+  tag: [Implementation Attack]
+
+fi_clock_dfa:
+  a: Clock glitching causes fault leading to key extraction using differential fault analysis
+  d:
+    Harden computations: [Ineffective computations]
+    Add security sensors: [Clock sensor]
+    Hide critical operations: [Instruction shuffling, Dummy instructions, Clock jitter]
+  surf: [Cryptographic Algorithm Implementation]
+  vect: [Fault Attack, Clock Glitching, DFA]
+  model: [Physical, Active]
+  tag: [Implementation Attack]
+
+fi_laser_dfa:
+  a: Laser fault injection causes fault leading to key extraction using differential fault analysis
+  d:
+    Harden computations: [Ineffective computations]
+    Add security sensors: [Light sensor, Temperature sensor]
+    Hide sensitive parts of the chip: [Glue logic]
+    Add shielding: [Metal layers]
+    Use modern technology: [Smaller technology, 3D packaging]
+    Hide critical operations: [Instruction shuffling, Dummy instructions, Clock jitter]
+  surf: [Cryptographic Algorithm Implementation]
+  vect: [Fault Attack, Laser Fault Injection, DFA]
+  model: [Physical, Active]
+  tag: [Implementation Attack]
+
+fi_em_dfa:
+  a: Electromagnetic fault injection causes fault leading to key extraction using differential fault analysis
+  d:
+    Harden computations: [Ineffective computations]
+    Hide sensitive parts of the chip: [Glue logic]
+    Add shielding: [Metal layers]
+    Add security sensors: [EM proximity sensor]
+    Use modern technology: [Smaller technology, 3D packaging]
+    Hide critical operations: [Instruction shuffling, Dummy instructions, Clock jitter]
+  surf: [Cryptographic Algorithm Implementation]
+  vect: [Fault Attack, Electromagnetic Fault Injection, DFA]
+  model: [Physical, Active]
+  tag: [Implementation Attack]
+
+fi_dbg:
+  a: Enabling debug interface via fault injection
+  d:
+    Hardware fault tolerance: [Spatial/temporal redundancy, Register ECC, Hardened PC, Hardened CSRs]
+    Software implemented fault tolerance: [Redundant execution, Control flow integrity enforcement]
+    Fault injection testing: [FI simulation, FI emulation, Software FI]
+  surf: [MCU, Firmware, Debug Interface]
+  vect: [Fault Injection, Instruction Skip, Control Flow Modification]
+  model: [Physical Access, Active]
+  tag: [Implementation Attack]
+
+bus_tampering:
+  a: Bus transaction injection
+  d:
+    Security alerts: [Major alert, Minor alert]
+    Bus protocol hardening: [Bus handshake signals, Bus integrity signals]
+  surf: [SoC, Bus Interface]
+  vect: [Fault Injection, Communication Tampering, Signal Injection]
+  model: [Physical Access, Active]
+  tag: [Communication]
+
+spectre:
+  # Primary fields
+  a: The CPU can execute instructions transiently (being reverted before their results are committed to the architectural state), sometimes operating on secret operands they were not supposed to access. Traces of these executions can leak the secret values.
+  d:
+    "preventing speculation altogether": ["Disabling speculation in the hardware"]
+  surf: ["Speculative HW"]
+  vect: ["Speculative Execution"]
+  model: ["Remote Code Execution"]
+  tag: ["Spectre"]
+  # Optional fields
+  year: 2018
+
+spectre_pht:
+  # Primary fields
+  a: Transient execution that results from mispredicted conditional branches can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel
+  d:
+    "preventing speculation altogether": ["Inserting fences at every branch", "Inserting fences at sensitive branches", "Disabling speculation in the hardware"]
+    "preventing speculation on secrets": ["Implementing ProSpeCT or similar mechanisms in hardware", ...]
+    "removing the covert channel": ["Cache partitioning", "Disabling hyperthreading", ...]
+  surf: ["Speculative HW"]
+  vect: ["PHT"]
+  model: ["Remote Code Execution"]
+  tag: ["Spectre"]
+  # Optional fields
+  year: 2018
+  cve: ["CVE-2017-5753", "CVE-2017-5715"]
+  risk: 5.6
+
+spectre_btb:
+  # Primary fields
+  a: Transient execution that results from mispredicted indirect branches can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel
+  d:
+    "preventing speculation altogether": ["Inserting fences at every indirect jump", "Disabling speculation in the hardware"]
+    "preventing speculation on secrets": ["Implementing ProSpeCT or similar mechanisms in hardware", ...]
+    "removing the covert channel": ["Cache partitioning", "Disabling hyperthreading", ...]
+  surf: ["Speculative HW"]
+  vect: ["BTB"]
+  model: ["Remote Code Execution"]
+  tag: ["Spectre"]
+  # Optional fields
+  year: 2018
+  cve: ["CVE-2017-5753", "CVE-2017-5715"]
+  risk: 5.6
+
+
+spectre_rsb:
+  # Primary fields
+  a: Transient execution that results from mispredicted return instructions can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel
+  d:
+    "preventing speculation altogether": ["Inserting fences at every return instruction", "Disabling speculation in the hardware"]
+    "preventing speculation on secrets": ["Implementing ProSpeCT or similar mechanisms in hardware", ...]
+    "removing the covert channel": ["Cache partitioning", "Disabling hyperthreading", ...]
+  surf: ["Speculative HW"]
+  vect: ["RSB"]
+  model: ["Remote Code Execution"]
+  tag: ["Spectre"]
+  # Optional fields
+  year: 2018
+  cve: ["CVE-2017-5753", "CVE-2017-5715"]
+  risk: 5.6
+
+
+spectre_stl:
+  # Primary fields
+  a: Transient execution that results from mispredicted store-to-load dependencies can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel
+  d:
+    "preventing speculation altogether": ["Inserting fences at every load", "Inserting fences at sensitive loads", "Disabling store-to-load speculation in the hardware"]
+    "preventing speculation on secrets": ["Implementing ProSpeCT or similar mechanisms in hardware", ...]
+    "removing the covert channel": ["Cache partitioning", "Disabling hyperthreading", ...]
+  surf: ["Speculative HW"]
+  vect: ["Speculative Execution"]
+  model: ["Remote Code Execution"]
+  tag: ["Spectre"]
+  # Optional fields
+  year: 2018
+  cve: ["CVE-2017-5753", "CVE-2017-5715"]
+  risk: 5.6
+
+rom_dump:
+  a: ROM optical dump (Retrieving ROM content from pictures)
+  d:
+    Making pictures of the ROM bits should not be sufficient to retrieve data:
+      - Data scrambling
+      - Scrambling wordlines
+      - Adding BL scrambling and make it output independent
+  model:
+    - Physical
+    - Passive
+  surf:
+    - Memory
+  vect:
+    - SEM
+    - ROM Extraction
+  tag:
+    - Optical Dump
+
+
+rom_dump_scrambling:
+  a:
+    ROM analytical dump with scrambled data (Retrieving ROM content from pictures)
+  d:
+    Taking picture of the ROM bits and reverse-engineering its circuitry (control / row decoder / column decoder) should not make it possible to retrieve data:
+      - Use Encryption
+      - Encryption circuitry should be placed outside of the memory itself.
+  model:
+    - Physical
+    - Passive
+  surf:
+    - Memory
+  vect:
+    - ROM Extraction
+    - Reverse Engineering
+  tag:
+    - Optical Dump
+
+lightweight_cryptographic_engine_instruction_flow:
+  a:
+    LCE Instruction flow modification (through micro-probing)
+  d:
+    Non-volatile memories should not be extractable through micro-probing attacks:
+      - Dedicated countermeasures such as the one created by Texplained and the CEA/ENSM  (paper
+        has been published at HOST_23).
+      - Countermeasures are activity monitors that detect the LCE-modified instruction
+        flow.
+  model:
+    - Physical
+    - Combined
+  surf:
+    - Memory
+    - MMU
+  vect:
+    - Fault Injection
+    - Signal Injection
+    - Reverse Engineering
+  tag:
+    - Micro-probing
+
+fib:
+  a: FIB modification
+  d:
+    Modifying or accessing internal signals should be rendered difficult.:
+      - Packing the signals of interest.
+      - Sensitive signals should stay far from the top metal layer to force an harder
+        backside attack.
+  model:
+    - Physical
+    - Active
+  surf:
+    - SoC
+    - MCU
+  vect:
+    - FIB Editing
+  tag:
+    - FIB
+
+shield_bypass:
+  a: Shield Bypass
+  d:
+    Micro-probing should be difficult to perform.:
+      - Shields do not prevent micro-probing.
+      - More complex shields involving extra logic scattered across the die surface
+      - Avoid single security violation signals
+  model:
+    - Physical
+    - Active
+  surf:
+    - Counter-measure Implementation
+  vect:
+    - FIB Editing
+  tag:
+    - FIB
+
+flash_op:
+  a:
+    Prevent Flash Operation
+  d:
+    Flash operation should not be modifiable:
+      - Read back values after Flash erase to make sure data are gone.
+      - Potentially write garbage data after erase.
+      - Read back the Flash value after it has been written to make sure the proper
+        data is stored.
+  model:
+    - Physical
+    - Active
+  surf:
+    - Memory
+    - Charge Pump
+  vect:
+    - FIB Editing
+  tag:
+    - FIB
+    - Charge Pump
+
+attack_15:
+  a: Use test pads to gain privileges
+  d:
+    Attackers should not be allowed to connect to test pads of an IC:
+      - Test pads should not be present any more after the engineering and debug phase
+        of the IC.
+  model:
+    - Physical
+    - Active
+  surf:
+    - Debug Interface
+  vect:
+    - Privileged Access Port
+  tag:
+    - Micro-probing
+
+photo_emission_mapping:
+  a: Function mapping from photo-emission
+  d:
+    Photo-emission spots should not leak the position of functions inside the IC:
+      - Duplicate emission sources at various location of the digital circuitry
+  model:
+    - Physical
+    - Passive
+  surf:
+    - Cryptographic Algorithm Implementation
+  vect:
+    - SEM
+    - Reverse Engineering
+  tag:
+    - SEM
+    - Optical Chip Inspection
+
+em_mapping:
+  a: Function mapping from EM
+  d:
+    EM radiation should not leak the position of functions inside the IC:
+      - Use dummy logic that will activate various EM spots across the digital circuitry
+  model:
+    - Physical
+    - Passive
+  surf:
+    - Cryptographic Algorithm Implementation
+  vect:
+    - Electromagnetic analysis
+    - Reverse Engineering
+  tag:
+    - Electromagnetic analysis
+
+fuse_copy_read:
+  a: Fuse reading after their copy to a dedicated RAM
+  d:
+    Make sure that the copy process will not leak fuse data:
+      - Encrypted copy only of the fuse.
+  model:
+    - Physical
+    - Passive
+  surf:
+    - Private Key
+    - Memory
+  vect:
+    - ROM/NVRAM Data Extraction or Modification
+    - Reverse-Engineering
+  tag:
+    - Implementation Attack
+
+fuse_read:
+  a: Fuse optical readout
+  d:
+    Make sure that reading fuse values from pictures is not feasible:
+      - Encrypted fuses
+      - Use of scrambling inside the fuse array.
+      - Use of oxide breakdown technology for fuses will make them harder to read.
+  model:
+    - Physical
+    - Active
+  surf:
+    - Private Key
+    - Memory
+  vect:
+    - ROM/NVRAM Data Extraction or Modification
+    - Reverse-Engineering
+  tag:
+    - Implementation Attack
+    - Optical Chip Inspection
+
+fuse_modify:
+  a: Fuse modification
+  d:
+    Programmed fuses should not be modifiable by the attacker:
+      - Prefer using oxide breakdown fuse technology.
+  model:
+    - Physical
+    - Active
+  surf:
+    - Private Key
+    - Memory
+  vect:
+    - FIB Editing
+  tag:
+    - Implementation Attack
+
+jtag_reactivation:
+  a: JTAG reactivation
+  d:
+    Locked JTAG should not be able to be re-activated by the attacker using FIB modification with or without micro-probing:
+      - Multiple activation signals
+      - Do not wire bond the JTAG pads of the IC unless this feature is really necessary.
+  model:
+    - Physical
+    - Active
+  surf:
+    - Debug Interface
+  vect:
+    - FIB Editing
+    - FA
+    - Voltage Glitching
+    - Laser Fault Injection
+    - JTAG Privileged Port
+    - JTAG Manipulation
+  tag:
+    - FIB
+
+uv_erase:
+  a: UV erase of Protection bits
+  d:
+    Flash memory should not be used to store security flags:
+      - Use fuse instead
+      - Mix flags with other data
+      - UV light sensors
+  model:
+    - Physical
+    - Active
+  surf:
+    - Memory
+  vect:
+    - ROM/NVRAM Data Extraction or Modification
+    - UV Illumination
+  tag:
+    - UV Illumination

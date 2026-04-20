@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>ORSHIN Attack Defense Framework Vizualization | ADF Database and Threat Model Vizualization.</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="ORSHIN Attack Defense Framework Vizualization" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="ADF Database and Threat Model Vizualization." />
+<meta property="og:description" content="ADF Database and Threat Model Vizualization." />
+<link rel="canonical" href="https://orshin.github.io/tropic-adf/map_physical.html" />
+<meta property="og:url" content="https://orshin.github.io/tropic-adf/map_physical.html" />
+<meta property="og:site_name" content="ORSHIN Attack Defense Framework Vizualization" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="ORSHIN Attack Defense Framework Vizualization" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"ADF Database and Threat Model Vizualization.","headline":"ORSHIN Attack Defense Framework Vizualization","url":"https://orshin.github.io/tropic-adf/map_physical.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/tropic-adf/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://orshin.github.io/tropic-adf/feed.xml" title="ORSHIN Attack Defense Framework Vizualization" /></head>
+
+
+  <body a="auto">
+
+    <div><a href="/tropic-adf//index.html"><img src="/tropic-adf//assets/ORSHIN-Logo-4C-webicon.png" width="100em" style="float:left;margin-right:3em;"><h1 style="margin-top:1em;">ORSHIN Attack Defense Framework</h1></a></div>
+
+    <main class="page-content" aria-label="Content">
+      <div class="w">
+        <h1 id="physical-mitre-emb3d-and-adf-mapping">Physical MITRE EMB3D and ADF Mapping</h1>
+
+<h2 id="device-includes-a-microprocessor-mitre-em3ed-pid-11">Device includes a microprocessor (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-11">MITRE EM3ED PID-11</a>)</h2>
+
+<h3 id="cryptographic-algorithm-implementation">Cryptographic Algorithm Implementation</h3>
+<ul>
+  <li>Keys: Cryptographic Algorithm Implementation  | Cryptographic Algorithm Implementation | Cryptographic Operation</li>
+  <li>Description: Cryptographic algorithm implementation emits exploitable information to the side-channel</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Power Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-101.html" target="_blank">MITRE EM3ED TID-101</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_physical/sca_power_spa.html">Secret-dependent operations lead to secret extraction through measuring power consumption</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/sca_power_spa_exponentiation.html">Key-dependent exponentiation leads to single-trace key extraction through measuring power consumption</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/sca_power_spa_multiplication.html">Key-dependent multiplication leads to key extraction through measuring power consumption</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/sca_power_dpa.html">Correlation between power consumption and key material in an unprotected cryptographic implementation leads to key extraction</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/sca_power_2ndorder_dpa.html">Second order correlation between power consumption and key material in a first-order protected cryptographic implementation leads to key extraction</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/sca_power_higherorder_dpa.html">Nth order correlation between power consumption and key material in an (n-1)-order protected cryptographic implementation leads to key extraction</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/sca_alignment.html">Misaligned traces can be aligned using alignment techniques</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Electromagnetic Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-102.html" target="_blank">MITRE EM3ED TID-102</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_physical/sca_em_spa_exponentiation.html">Key-dependent exponentiation leads to single-trace key extraction through measuring electromagnetic emanations</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/sca_em_spa_multiplication.html">Key-dependent multiplication leads to key extraction through measuring electromagnetic emanations</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/sca_em_dpa.html">Correlation between electromagnetic emanations and key material in an unprotected cryptographic implementation leads to key extraction</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/sca_em_2ndorder_dpa.html">Second order correlation between electromagnetic emanations and key material in a first-order protected cryptographic implementation leads to key extraction</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/sca_em_higherorder_dpa.html">Nth order correlation between electromagnetic emanations and key material in an (n-1)-order protected cryptographic implementation leads to key extraction</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/em_mapping.html">Function mapping from EM</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_physical/dfa.html">Differential fault analysis</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/fi_voltage_dfa.html">Voltage Glitching causes fault leading to key extraction using differential fault analysis</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/fi_clock_dfa.html">Clock glitching causes fault leading to key extraction using differential fault analysis</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/fi_laser_dfa.html">Laser fault injection causes fault leading to key extraction using differential fault analysis</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/fi_em_dfa.html">Electromagnetic fault injection causes fault leading to key extraction using differential fault analysis</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>SEM   (<a href="https://emb3d.mitre.org/threats/TID-102.html" target="_blank">MITRE EM3ED TID-102</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/photo_emission_mapping.html">Function mapping from photo-emission</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="controller-implementation">Controller Implementation</h3>
+<ul>
+  <li>Keys: Controller Implementation  | Controller Implementation | CPU Implementation | CPU | MCU | Microprocessor | SoC</li>
+  <li>Description: Controller/CPU Implementation missbehaviour can disclose sensitive data</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_physical/fi_voltage_instructionskip.html">Voltage glitching leads to instruction skip</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/fi_clock_instructionskip.html">Clock glitching leads to instruction skip</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/fi_laser_instructionskip.html">Laser fault injection leads to instruction skip</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/fi_em_instructionskip.html">Electromagnetic fault injection leads to instruction skip</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/dfa.html">Differential fault analysis</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/fi_dbg.html">Enabling debug interface via fault injection</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/bus_tampering.html">Bus transaction injection</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>FIB   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_physical/fib.html">FIB modification</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/fib.html">FIB modification</a></p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="countermeasure-implementation">Countermeasure Implementation</h3>
+<ul>
+  <li>Keys: Countermeasure Implementation  | Counter-measure Implementation</li>
+  <li>Description: Disabling countermeasure leads to making the device vulnerable again</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FIB   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/shield_bypass.html">Shield Bypass</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="mmu">MMU</h3>
+<ul>
+  <li>Keys: MMU  | Memory Management | Memory Management Unit</li>
+  <li>Description: Memory management unit</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/lightweight_cryptographic_engine_instruction_flow.html">LCE Instruction flow modification (through micro-probing)</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="rsa">RSA</h3>
+<ul>
+  <li>Keys: RSA  | Rivest–Shamir–Adleman</li>
+  <li>Description: Rivest–Shamir–Adleman (RSA) algorithm</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Power Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-101.html" target="_blank">MITRE EM3ED TID-101</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/sca_power_spa_exponentiation.html">Key-dependent exponentiation leads to single-trace key extraction through measuring power consumption</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Electromagnetic Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-102.html" target="_blank">MITRE EM3ED TID-102</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/sca_em_spa_exponentiation.html">Key-dependent exponentiation leads to single-trace key extraction through measuring electromagnetic emanations</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="rsa-exponentiation">RSA Exponentiation</h3>
+<ul>
+  <li>Keys: RSA Exponentiation  | RSA Exponentiation</li>
+  <li>Description: Key-dependent exponentiation leads to single-trace key extraction through measuring power consumption</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Power Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-101.html" target="_blank">MITRE EM3ED TID-101</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/sca_power_spa_exponentiation.html">Key-dependent exponentiation leads to single-trace key extraction through measuring power consumption</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Electromagnetic Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-102.html" target="_blank">MITRE EM3ED TID-102</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/sca_em_spa_exponentiation.html">Key-dependent exponentiation leads to single-trace key extraction through measuring electromagnetic emanations</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ecc">ECC</h3>
+<ul>
+  <li>Keys: ECC  | Elliptic-Curve Cryptography</li>
+  <li>Description: Elliptic-curve cryptography (ECC)</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Power Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-101.html" target="_blank">MITRE EM3ED TID-101</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/sca_power_spa_multiplication.html">Key-dependent multiplication leads to key extraction through measuring power consumption</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Electromagnetic Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-102.html" target="_blank">MITRE EM3ED TID-102</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/sca_em_spa_multiplication.html">Key-dependent multiplication leads to key extraction through measuring electromagnetic emanations</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ecc-multiplication">ECC Multiplication</h3>
+<ul>
+  <li>Keys: ECC Multiplication  | ECC Multiplication</li>
+  <li>Description: Key-dependent multiplication leads to key extraction through measuring power consumption</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Power Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-101.html" target="_blank">MITRE EM3ED TID-101</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/sca_power_spa_multiplication.html">Key-dependent multiplication leads to key extraction through measuring power consumption</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Electromagnetic Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-102.html" target="_blank">MITRE EM3ED TID-102</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/sca_em_spa_multiplication.html">Key-dependent multiplication leads to key extraction through measuring electromagnetic emanations</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="speculation">Speculation</h3>
+<ul>
+  <li>Keys: Speculation  | Speculative HW</li>
+  <li>Description: Optimizations leading to speculative execution in the hardware</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Speculative Execution   (<a href="https://emb3d.mitre.org/threats/TID-103.html" target="_blank">MITRE EM3ED TID-103</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_physical/spectre.html">The CPU can execute instructions transiently (being reverted before their results are committed to the architectural state), sometimes operating on secret operands they were not supposed to access. Traces of these executions can leak the secret values.</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/spectre_pht.html">Transient execution that results from mispredicted conditional branches can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/spectre_btb.html">Transient execution that results from mispredicted indirect branches can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/spectre_rsb.html">Transient execution that results from mispredicted return instructions can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/spectre_stl.html">Transient execution that results from mispredicted store-to-load dependencies can cause persistent changes in the microarchitecture, which can be used to intentionally leak secrets from a victim process using a covert channel</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Power Consumption Analysis Side Channel (<a href="https://emb3d.mitre.org/threats/TID-101.html" target="_blank">MITRE EM3ED TID-101) </a></p>
+      </li>
+      <li>
+        <p>Electromagnetic Analysis Side Channel (<a href="https://emb3d.mitre.org/threats/TID-102.html" target="_blank">MITRE EM3ED TID-102) </a></p>
+      </li>
+      <li>
+        <p>Microarchitectural Side Channels (<a href="https://emb3d.mitre.org/threats/TID-103.html" target="_blank">MITRE EM3ED TID-103) </a></p>
+      </li>
+      <li>
+        <p>Hardware Fault Injection – Control Flow Modification (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-a-hardware-access-port-eg-uart-jtag-mitre-em3ed-pid-15">Device includes a hardware access port (e.g., UART, JTAG) (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-15">MITRE EM3ED PID-15</a>)</h2>
+
+<h3 id="debug-interface">Debug Interface</h3>
+<ul>
+  <li>Keys: Debug Interface</li>
+  <li>Description: Debug Interface provides acces to internal units</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/fi_dbg.html">Enabling debug interface via fault injection</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>FIB   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/jtag_reactivation.html">JTAG reactivation</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Privileged Access Port   (<a href="https://emb3d.mitre.org/threats/TID-116.html" target="_blank">MITRE EM3ED TID-116</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/attack_15.html">Use test pads to gain privileges</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Firmware/Data Extraction via Hardware Interface (<a href="https://emb3d.mitre.org/threats/TID-115.html" target="_blank">MITRE EM3ED TID-115) </a></p>
+      </li>
+      <li>
+        <p>Latent Privileged Access Port (<a href="https://emb3d.mitre.org/threats/TID-116.html" target="_blank">MITRE EM3ED TID-116) </a></p>
+      </li>
+      <li>
+        <p>Latent Hardware Debug Port Allows Memory/Code Manipulation (<a href="https://emb3d.mitre.org/threats/TID-119.html" target="_blank">MITRE EM3ED TID-119) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="adf-only-surfaces-no-mitre-em3ed-pid">ADF-Only Surfaces (No MITRE EM3ED PID)</h2>
+
+<h3 id="fw">FW</h3>
+<ul>
+  <li>Keys: FW  | Firmware</li>
+  <li>Description: Firmware missbehaviour</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/fi_dbg.html">Enabling debug interface via fault injection</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="charge-pump">Charge Pump</h3>
+<ul>
+  <li>Keys: Charge Pump</li>
+  <li>Description: Charge Pump is a circuit that generates high voltages for memory operations, and can be a target for physical attacks (e.g., via FIB) to prevent or force data erasure.</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FIB   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/flash_op.html">Prevent Flash Operation</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-peripheral-chips-and-integrated-data-buses-mitre-em3ed-pid-13">Device includes peripheral chips and integrated data buses (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-13">MITRE EM3ED PID-13</a>)</h2>
+
+<h3 id="bus-interface">Bus Interface</h3>
+<ul>
+  <li>Keys: Bus Interface</li>
+  <li>Description: Bus interface</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/bus_tampering.html">Bus transaction injection</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>Unverified Peripheral Firmware Loaded (<a href="https://emb3d.mitre.org/threats/TID-113.html" target="_blank">MITRE EM3ED TID-113) </a></p>
+      </li>
+      <li>
+        <p>Peripheral Data Bus Interception (<a href="https://emb3d.mitre.org/threats/TID-114.html" target="_blank">MITRE EM3ED TID-114) </a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="device-includes-memorystorage-external-to-cpu-mitre-em3ed-pid-12">Device includes Memory/Storage (external to CPU) (<a href="https://emb3d.mitre.org/properties-mapper/?id=PID-12">MITRE EM3ED PID-12</a>)</h2>
+
+<h3 id="memory">Memory</h3>
+<ul>
+  <li>Keys: Memory  | Non-Volatile Memory</li>
+  <li>Description: Device includes memory/storage external to CPU</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/lightweight_cryptographic_engine_instruction_flow.html">LCE Instruction flow modification (through micro-probing)</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>FIB   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_physical/flash_op.html">Prevent Flash Operation</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/fuse_modify.html">Fuse modification</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>ROM Extraction   (<a href="https://emb3d.mitre.org/threats/TID-108.html" target="_blank">MITRE EM3ED TID-108</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_physical/rom_dump_scrambling.html">ROM analytical dump with scrambled data (Retrieving ROM content from pictures)</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/fuse_copy_read.html">Fuse reading after their copy to a dedicated RAM</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/fuse_read.html">Fuse optical readout</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/uv_erase.html">UV erase of Protection bits</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>SEM   (<a href="https://emb3d.mitre.org/threats/TID-102.html" target="_blank">MITRE EM3ED TID-102</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/rom_dump.html">ROM optical dump (Retrieving ROM content from pictures)</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="private-key">Private Key</h3>
+<ul>
+  <li>Keys: Private Key  | private key</li>
+  <li>Description: Device contains memory, where sensitive data are stored</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>Power Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-101.html" target="_blank">MITRE EM3ED TID-101</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_physical/sca_power_spa_exponentiation.html">Key-dependent exponentiation leads to single-trace key extraction through measuring power consumption</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/sca_power_spa_multiplication.html">Key-dependent multiplication leads to key extraction through measuring power consumption</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Electromagnetic Side-Channel   (<a href="https://emb3d.mitre.org/threats/TID-102.html" target="_blank">MITRE EM3ED TID-102</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_physical/sca_em_spa_exponentiation.html">Key-dependent exponentiation leads to single-trace key extraction through measuring electromagnetic emanations</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/sca_em_spa_multiplication.html">Key-dependent multiplication leads to key extraction through measuring electromagnetic emanations</a></p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>FIB   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/fuse_modify.html">Fuse modification</a></li>
+        </ul>
+      </li>
+      <li>
+        <p>ROM Extraction   (<a href="https://emb3d.mitre.org/threats/TID-108.html" target="_blank">MITRE EM3ED TID-108</a>)</p>
+
+        <ul>
+          <li>
+            <p><a href="ad_physical/fuse_copy_read.html">Fuse reading after their copy to a dedicated RAM</a></p>
+          </li>
+          <li>
+            <p><a href="ad_physical/fuse_read.html">Fuse optical readout</a></p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="adf-only-surfaces-no-mitre-em3ed-pid-1">ADF-Only Surfaces (No MITRE EM3ED PID)</h2>
+
+<h3 id="fw-1">FW</h3>
+<ul>
+  <li>Keys: FW  | Firmware</li>
+  <li>Description: Firmware missbehaviour</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FA   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/fi_dbg.html">Enabling debug interface via fault injection</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="charge-pump-1">Charge Pump</h3>
+<ul>
+  <li>Keys: Charge Pump</li>
+  <li>Description: Charge Pump is a circuit that generates high voltages for memory operations, and can be a target for physical attacks (e.g., via FIB) to prevent or force data erasure.</li>
+  <li>
+    <p>Attack Vectors and Threats:</p>
+
+    <ul>
+      <li>
+        <p>FIB   (<a href="https://emb3d.mitre.org/threats/TID-105.html" target="_blank">MITRE EM3ED TID-105</a>)</p>
+
+        <ul>
+          <li><a href="ad_physical/flash_op.html">Prevent Flash Operation</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+      </div>
+    </main>
+  </body>
+</html>

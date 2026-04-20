@@ -1,3 +1,4 @@
+---
 # FIDO AD
 
 # generic threats
@@ -73,7 +74,8 @@ cl_cs:
       [
         Authenticator Activation PIN
       ]
-      Remove Malware from Device: []
+    Remove Malware from Device:
+      []
   year:
   surf: [Client]
   vect: [Malware, Compromised Browser Extension, XSS Attack]
@@ -163,7 +165,7 @@ rp_crypt:
   cwe: ["506"]
   capec: ["97"]
 
-#databases
+# databases
 
 RPdb_m:
   a: RP Database Modification
